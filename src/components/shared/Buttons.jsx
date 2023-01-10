@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-export function Buttons() {
+export function Buttons(props) {
   return (
     <WrapperBtns>
       <button type="button">
         Go Back
       </button>
-      <button type="submit">
+      <button type="submit" disabled={props.valid}>
         Next Step
       </button>
     </WrapperBtns>

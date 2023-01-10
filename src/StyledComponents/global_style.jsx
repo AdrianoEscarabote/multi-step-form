@@ -72,6 +72,25 @@ const globalStyle = createGlobalStyle`
     justify-content: center;
     flex-direction: column;
     font-size: 16px;
+    padding: 10px;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+  }
+
+  @media (max-width: 720px) {
+    body {
+      padding: 0px !Important;
+      background-color: #fff;
+    }
   }
 `
 

@@ -15,7 +15,6 @@ const Step2Styled = styled.div`
       label {
         width: 100%;
         background-color: #fff;   
-        border: 1px solid blue;
         border-radius: 10px;
         height: 120px;
         display: flex;
@@ -94,6 +93,15 @@ const Step2Styled = styled.div`
     .switch--shadow:checked + label:after {
       transform: translateX(22px);
     }
+  }
+
+  .selected {
+    border: 1px solid red;
+  }
+
+  @media (max-width: 720px) {
+    margin-top: 100px;
+    z-index: 100;
   }
 `
 
