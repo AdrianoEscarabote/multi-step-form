@@ -17,10 +17,24 @@ const Step1Styled = styled.div`
     flex-direction: column; 
     gap: 15px;
 
+    .label_span {
+      display: flex;
+      justify-content: space-between;
+
+      span {
+        display: none; 
+        color: red; 
+      }
+    }
+
     input {
       width: 100%;
       border-radius: 10px;
     }
+  }
+
+  .error_message {
+    display: block !Important;
   }
 `
 

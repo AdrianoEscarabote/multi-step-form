@@ -6,6 +6,7 @@ export default function Step01() {
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,10 +21,36 @@ export default function Step01() {
       );
   };
 
+  const validatePhone = (phone) => {
+    return String(phone).match(/^(\+0?1\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/)
+
+  }
+
+  const handlePhoneError = () => {
+    const phoneValid = validatePhone(phone)
+
+    console.log("este: " + phoneValid)
+  }
+  
+  const handleErrorName = () => {
+    if (name) document.querySelector(".message_name").classList.remove("error_message")
+    else document.querySelector(".message_name").classList.add("error_message")
+  }
+
+  const handleErrorEmail = () => {
+    const emailValid = validateEmail(email)
+
+    if (emailValid)
+      document.querySelector(".message_email").classList.remove("error_message")
+    else
+      document.querySelector(".message_email").classList.add("error_message")
+  };
+
   const getIsFormValid = () => {
+    const valid = name && validateEmail(email)
+    
     return (
-      name &&
-      validateEmail(email)
+      valid
     );
   };
 
@@ -36,14 +63,35 @@ export default function Step01() {
         <fieldset>
           <legend className="sr-only">Enter your name, email and phone number!</legend>
 
-          <label htmlFor="name">Name</label>
-          <input type="text" name="name" id="name" placeholder="e.g. Stephen King" onChange={(e) => setName(e.target.value)} />
+          <div className="label_span">
+            <label htmlFor="name">Name</label>
+            <span className="message_name">This field is required</span>
+          </div>
 
-          <label htmlFor="email">Email Address</label>
-          <input type="email" name="email" id="email" placeholder="e.g. stephenking@lorem.com" onChange={(e) => setEmail(e.target.value)} />
+          <input type="text" name="name" id="name" placeholder="e.g. Stephen King" onChange={(e) => {
+            setName(e.target.value)
+            handleErrorName()
+          }} />
 
-          <label htmlFor="phone">Phone Number</label>
-          <input type="text" name="phone" id="phone" placeholder="e.g. +1 234 567 890" />
+          <div className="label_span">
+            <label htmlFor="email">Email Address</label>
+            <span className="message_email">This field is required</span>
+          </div>
+
+          <input type="email" name="email" id="email" placeholder="e.g. stephenking@lorem.com" onChange={(e) => {
+            setEmail(e.target.value)
+            handleErrorEmail()
+          }} />
+
+          <div className="label_span">
+            <label htmlFor="phone">Phone Number</label>
+            <span className="message">This field is required</span>
+          </div>
+
+          <input type="text" name="phone" id="phone" placeholder="e.g. +1 234 567 890" onChange={(e) => {
+            setPhone(e.target.value)
+            handlePhoneError()
+          }} />
 
           <Buttons valid={!getIsFormValid()} />
 
