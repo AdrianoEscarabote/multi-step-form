@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { MarineBlue } from "../../StyledComponents/colors";
+import { White } from "../../StyledComponents/colors";
 
 export function Buttons(props) {
   return (
@@ -20,7 +22,12 @@ const WrapperBtns = styled.div`
   justify-content: space-between;
 
   button {
-    width: 120px;
+    width: 121.72px;
+    border-radius: 8px;
+    height: 48px;
+    background-color: ${MarineBlue};
+    color: ${White};
+    cursor: pointer;
   }
 `
 

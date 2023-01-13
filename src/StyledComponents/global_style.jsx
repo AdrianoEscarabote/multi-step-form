@@ -2,11 +2,6 @@ import {createGlobalStyle} from "styled-components";
 import {LightBlue} from "./colors";
 
 const globalStyle = createGlobalStyle`
-
-  @font-face {
-      font-family: "ubuntu";
-      src: url("../assets/fonts/Ubuntu-Bold.ttf");
-  }
   *,
   *::before,
   *::after {
@@ -37,7 +32,7 @@ const globalStyle = createGlobalStyle`
     min-height: 100vh;
     text-rendering: optimizeSpeed;
     line-height: 1.5;
-    font-family: "ubuntu";
+    font-family: 'Ubuntu', sans-serif;
   }
   img,
   picture {

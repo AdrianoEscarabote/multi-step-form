@@ -1,7 +1,10 @@
 import styled from "styled-components";
 import bg_sidebar from "../assets/images/bg-sidebar-desktop.svg";
 import { LightGray } from "../StyledComponents/colors";
-import bg_sidebar_mobile from "../assets/images/bg-sidebar-mobile.svg"
+import bg_sidebar_mobile from "../assets/images/bg-sidebar-mobile.svg";
+import { PastelBlue } from "../StyledComponents/colors";
+import { LightBlue } from "../StyledComponents/colors";
+import { MarineBlue } from "../StyledComponents/colors";
 
 const Article = styled.article`
   width: 900px;
@@ -24,18 +27,47 @@ const Article = styled.article`
       grid-column: 1;
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 17px;
+
       .number-step {
-        width: 40px;
-        height: 40px;
+        width: 33px;
+        height: 33px;
         padding: 5px;
         display: grid; 
         place-content: center;
         background-color: transparent; 
-        border-radius: 50%;
-        border: 1px solid #fff;
+        border: 1px solid #FFFFFF;
+        border-radius: 33px;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 16px;
+      }
+
+      .info {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        p {
+          font-weight: 700;
+          font-size: 14px;
+          line-height: 16px;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+        }
+
+        .step_num {
+          font-weight: 400;
+          font-size: 12px;
+          line-height: 14px;
+          color: ${PastelBlue}; 
+        }
       }
     }
+  }
+
+  .active {
+    background-color: ${LightBlue} !Important;
+    color: ${MarineBlue};
   }
 
   @media (max-width: 920px) {

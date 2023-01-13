@@ -54,6 +54,9 @@ export default function Step01() {
     );
   };
 
+  
+
+
   return (
     <Step1Styled>
       <h2>Personal info</h2>

@@ -1,7 +1,10 @@
+import { useEffect } from "react";
 import Step3Styled from "../../StyledComponents/form_style/Step3Styled";
 import { Buttons } from "../shared/Buttons";
 
 export default function Step03() {
+
+  
   return (
     <Step3Styled>
       <h2>Pick add-ons</h2>

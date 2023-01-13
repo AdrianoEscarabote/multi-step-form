@@ -11,6 +11,28 @@ export default function Step02() {
     document.querySelector(`.${e.id}`).classList.add("selected")
   }
 
+  const handleRadio = (ev) => {
+    console.log(ev.target.checked)
+    if (ev.target.checked) {
+      document.querySelector("form").classList.add("plans_yearly")
+      document.querySelector(".price_arcade").innerHTML = "$90/yr"
+      document.querySelector(".price_advanced").innerHTML = "$120/yr"
+      document.querySelector(".price_pro").innerHTML = "$150/yr"
+
+      document.querySelector(".year_plan").classList.add("active")
+      document.querySelector(".mon_plan").classList.remove("active")
+
+    } else {
+      document.querySelector("form").classList.remove("plans_yearly")
+      document.querySelector(".price_arcade").innerHTML = "$9/mo"
+      document.querySelector(".price_advanced").innerHTML = "$12/mo"
+      document.querySelector(".price_pro").innerHTML = "$15/mo"
+
+      document.querySelector(".year_plan").classList.remove("active")
+      document.querySelector(".mon_plan").classList.add("active")
+    }
+  }
+
   return (
     <Step2Styled>
       <h2>Select your plan</h2>
@@ -26,7 +48,8 @@ export default function Step02() {
               <img src={iconArcade} alt="" aria-hidden="true" />
 
               <p>Arcade
-                <span>$9/mo</span>
+                <span className="price_arcade">$9/mo</span>
+                <span className="yearly">2 months free</span>
               </p>
             </label>
             <input type="radio" name="plan" id="arcade" onClick={(e) => handleSelect(e.target)}/>
@@ -35,7 +58,8 @@ export default function Step02() {
               <img src={iconAdvanced} alt="" aria-hidden="true" />
 
               <p>Advanced
-                <span>$12/mo</span>
+                <span className="price_advanced">$12/mo</span>
+                <span className="yearly">2 months free</span>
               </p>
             </label>
             <input type="radio" name="plan" id="advanced" onClick={(e) => handleSelect(e.target)}/>
@@ -44,17 +68,18 @@ export default function Step02() {
               <img src={iconPro} alt="" aria-hidden="true" />
 
               <p>Pro
-                <span>$15/mo</span>
+                <span className="price_pro">$15/mo</span>
+                <span className="yearly">2 months free</span>
               </p>
             </label>
             <input type="radio" name="plan" id="iconPro" onClick={(e) => handleSelect(e.target)}/>
           </section>
 
           <div className="switch__container">
-            <span>Monthly</span>
-            <input id="switch-shadow" className="switch switch--shadow" type="checkbox" />
+            <span className="mon_plan active">Monthly</span>
+            <input id="switch-shadow" className="switch switch--shadow" type="checkbox" onChange={(e) => handleRadio(e)} />
             <label htmlFor="switch-shadow"></label>
-            <span>Yearly</span>
+            <span className="year_plan">Yearly</span>
           </div>
 
           <Buttons />
