@@ -1,8 +1,12 @@
 import Step1Styled from "../../StyledComponents/form_style/Step1Styled";
 import { Buttons } from "../shared/Buttons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export default function Step01() {
+export default function Step01(props) {
+  
+  useEffect(() => {
+    props.handleColorSteps(0)
+  }, [])
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");

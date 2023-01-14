@@ -3,8 +3,13 @@ import { Buttons } from "../shared/Buttons";
 import iconArcade from "../../assets/images/icon-arcade.svg";
 import iconAdvanced from "../../assets/images/icon-advanced.svg";
 import iconPro from "../../assets/images/icon-pro.svg";
+import { useEffect } from "react";
 
-export default function Step02() {
+export default function Step02(props) {
+  
+  useEffect(() => {
+    props.handleColorSteps(1)
+  }, [])
 
   const handleSelect = (e) => {
     document.querySelectorAll("label").forEach(element => element.classList.remove("selected"))

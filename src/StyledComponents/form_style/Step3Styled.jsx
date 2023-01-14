@@ -1,20 +1,39 @@
 import styled from "styled-components";
 
 const Step3Styled = styled.div`
-  background-color: black;
+  color: black;
   padding: 20px 50px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: 100%;
 
   form {
-    .check {
-      display: flex;
-      flex-direction: column;
+    height: 100%;
+    position: relative;
 
-      label {
-        width: 100%;
+    fieldset {
+      border: transparent;
+
+      .check {
         display: flex;
-        align-items: center;
-        justify-content: space-between;
-        text-align: left;
+        gap: 15px;
+        flex-direction: column;
+    
+        label {
+          border: 1px solid;
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          text-align: left;
+        }
+      }
+    
+      .buttons {
+        position: absolute;
+        bottom: 0;
       }
     }
   }

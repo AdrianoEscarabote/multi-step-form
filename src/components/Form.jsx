@@ -5,8 +5,8 @@ import Step03 from "./form/Step_03";
 export default function Form(props) {
   
   return (
-    // <Step01 handleColorStep={props.handleColorSteps(0)}/>
-    // <Step02 handleColorStep={props.handleColorSteps(1)}/>
-    <Step03 handleColorStep={props.handleColorSteps(2)}/>
+    // <Step01 handleColorSteps={props.handleColorSteps}/>
+    <Step02 handleColorSteps={props.handleColorSteps}/>
+    // <Step03 handleColorSteps={props.handleColorSteps}/>
   )
 }

@@ -4,11 +4,11 @@ import { White } from "../../StyledComponents/colors";
 
 export function Buttons(props) {
   return (
-    <WrapperBtns>
-      <button type="button">
+    <WrapperBtns className="buttons">
+      <button type="button" className="back">
         Go Back
       </button>
-      <button type="submit" disabled={props.valid}>
+      <button type="submit" className="next" disabled={props.valid}>
         Next Step
       </button>
     </WrapperBtns>

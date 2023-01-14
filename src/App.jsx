@@ -1,20 +1,17 @@
 import Form from "./components/Form";
 import Thankyou from "./components/Thankyou";
 import Article from "./StyledComponents/Article";
-import { useEffect } from "react";
 
 export default function App() {
 
   const handleColorSteps = (num_param) => {
-    useEffect(( )=> {
-      for(let i = 1; i <= 4; i++) {
-        document.querySelectorAll(`.number-step`).forEach(element => {
-          element.classList.remove("active")
-        })
-  
-        document.querySelectorAll(".number-step")[num_param].classList.add("active")
-      } 
-    }, []);
+    for(let i = 1; i <= 4; i++) {
+      document.querySelectorAll(`.number-step`).forEach(element => {
+        element.classList.remove("active")
+      })
+
+      document.querySelectorAll(".number-step")[num_param].classList.add("active")
+    } 
   };
 
   return (
