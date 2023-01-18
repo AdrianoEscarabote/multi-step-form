@@ -7,6 +7,6 @@ export default function Form(props) {
   return (
     // <Step01 handleColorSteps={props.handleColorSteps}/>
     <Step02 handleColorSteps={props.handleColorSteps}/>
-    // <Step03 handleColorSteps={props.handleColorSteps}/>
+    //<Step03 handleColorSteps={props.handleColorSteps}/>
   )
 }

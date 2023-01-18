@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { MarineBlue } from "../colors";
 import { Coolgray } from "../colors";
+import { White } from "../colors";
+import { Magnolia } from "../colors";
 
 const Step1Styled = styled.div`
   display: flex;
@@ -9,7 +11,7 @@ const Step1Styled = styled.div`
   flex-direction: column;
   width: 100%;
   height: 100%;
-  background-color: #000;
+  background-color: ${White};
   position: relative;
 
   h2 {
@@ -20,6 +22,7 @@ const Step1Styled = styled.div`
   }
 
   p {
+    padding-top: 10px;
     font-weight: 400;
     font-size: 16px;
     line-height: 25px;
@@ -27,9 +30,9 @@ const Step1Styled = styled.div`
   }
 
   form {
+    margin-top: 30px;
     width: 100%;
     height: 100%;
-    background-color: red;
     display: flex;
     flex-direction: column; 
     position: relative;
@@ -37,6 +40,9 @@ const Step1Styled = styled.div`
 
     fieldset {
       border: transparent;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
 
       .label_span {
         display: flex;
@@ -48,7 +54,7 @@ const Step1Styled = styled.div`
   
         span {
           display: none; 
-          color: red; 
+          color: ${Magnolia}; 
         }
       }
     
@@ -64,13 +70,18 @@ const Step1Styled = styled.div`
         line-height: 18px;
         display: flex;
         align-items: center;
-        color: ${Coolgray};
+        color: ${MarineBlue};
+        &::-webkit-input-placeholder,
+        &::-moz-placeholder { 
+          color: ${Coolgray}; 
+        }
       }
     }
   }
 
   .error_message {
     display: block !Important;
+    color: red !Important;
   }
 
   .buttons {
@@ -82,6 +93,13 @@ const Step1Styled = styled.div`
       bottom: 0;
       right: 0;
     }
+  }
+
+  @media(max-width: 700px) {
+    background-color: white;
+    top: 100px;
+    border-radius: 10px;
+    background-color: #fff;
   }
 `
 

@@ -82,22 +82,24 @@ const Article = styled.article`
     border-radius: 0px;
     display: flex;
     flex-direction: column;
+    background-color: ${LightBlue};
 
     .steps {
       display: flex;
-      align-items: center; 
+      align-items: flex-start; 
       justify-content: center;
+      padding-top: 20px;
       border-radius: 0px;
       background: url(${bg_sidebar_mobile}) no-repeat;
       background-size: 100%;
       width: 100%;
-      height: 140px;
+      height: 180px;
       position: absolute;
       left: 0;
       top: 0;
 
       .info {
-        display: none;
+        display: none !Important;
       }
     }
   }

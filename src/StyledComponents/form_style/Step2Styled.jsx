@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { MarineBlue } from "../colors";
+import { Alabaster, LightBlue, LightGray, MarineBlue } from "../colors";
 import { Coolgray } from "../colors";
 
 const Step2Styled = styled.div`
@@ -18,6 +18,7 @@ const Step2Styled = styled.div`
     font-weight: 700;
     line-height: 37px;
     color: ${MarineBlue}; 
+    padding-bottom: 10px;
   }
 
   p {
@@ -28,25 +29,37 @@ const Step2Styled = styled.div`
   }
   
   form {
-    background-color: #454543;
+    margin-top: 30px;
     position: relative;
     width: 100%;
     height: 100%;
+
 
     fieldset {
       border: transparent;
 
       .plans {
         display: flex;
+        gap: 18px;
   
         label {
+          padding: 10px;
           width: 100%;
           background-color: #fff;   
-          border-radius: 10px;
-          height: 120px;
+          border: 1px solid #6069f363;
           display: flex;
           flex-direction: column;
           justify-content: space-between;
+          cursor: pointer;
+          max-width: 141.83px;
+          height: 149.86px;
+          border: 1px solid #DBDBDD;
+          border-radius: 10px;
+
+
+          &:hover {
+            border: 1px solid #524E98;
+          }
           
           img {
             width: 40px;
@@ -59,21 +72,34 @@ const Step2Styled = styled.div`
           }
     
         }
+        input {
+          display: none;
+        }
       }
   
       .switch__container {
+        position: absolute; 
+        background-color: ${Alabaster};
+        border-radius: 10px;
+        top: 182px;
         display: flex;
+        align-items: center;
         width: 100%;
-        padding-top: 20px;
+        padding: 16px;
         gap: 20px;
         justify-content: center;
   
-        span.active {
-          color: red;
-          font-size: 22px;
+        span.active_radio {
+          color: ${MarineBlue};
+          font-weight: 600;
+          font-size: 15.1285px;
+          line-height: 15px;
         }
         span {
-          color: blue;
+          color: ${Coolgray};
+          font-weight: 600;
+          font-size: 15.1285px;
+          line-height: 15px;
         }
       }
   
@@ -135,17 +161,16 @@ const Step2Styled = styled.div`
   .buttons {
     position: absolute;
     bottom: 0;
-    
   }
 
   .selected {
-    border: 1px solid red;
+    border: 1px solid #524E98 !Important;
   }
   
   .plans_yearly {
     .plans {
       label {
-        height: 150px !Important;
+        height: 158px !Important;
       }
     }
     

@@ -2,22 +2,37 @@ import Step1Styled from "../../StyledComponents/form_style/Step1Styled";
 import { Buttons } from "../shared/Buttons";
 import { useEffect, useState } from "react";
 
-export default function Step01(props) {
+export default function Step01({ handleColorSteps }) {
   
   useEffect(() => {
-    props.handleColorSteps(0)
-  }, [])
+    handleColorSteps(0);
+  }, []);
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  
+  useEffect(() => {
+    if (name) document.querySelector(".message_name").classList.remove("error_message");
+    else document.querySelector(".message_name").classList.add("error_message");
+  }, [name]);
+
+  useEffect(() => {
+    const valid = String(phone).match(/^(\+0?1\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{3}$/);
+    
+    if (valid) {
+      document.querySelector(".message_phone").classList.remove("error_message");
+    } else {
+      document.querySelector(".message_phone").classList.add("error_message");
+    };
+  }, [phone]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     alert("funcionando!");
   };
 
-  const validateEmail = (email) => {
+  const validateEmail = () => {
     return String(email)
       .toLowerCase()
       .match(
@@ -25,41 +40,22 @@ export default function Step01(props) {
       );
   };
 
-  const validatePhone = (phone) => {
-    return String(phone).match(/^(\+0?1\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/)
-
-  }
-
-  const handlePhoneError = () => {
-    const phoneValid = validatePhone(phone)
-
-    console.log("este: " + phoneValid)
-  }
-  
-  const handleErrorName = () => {
-    if (name) document.querySelector(".message_name").classList.remove("error_message")
-    else document.querySelector(".message_name").classList.add("error_message")
-  }
-
   const handleErrorEmail = () => {
-    const emailValid = validateEmail(email)
-
-    if (emailValid)
-      document.querySelector(".message_email").classList.remove("error_message")
-    else
-      document.querySelector(".message_email").classList.add("error_message")
+    const emailValid = validateEmail(email);
+    if (emailValid) {
+      document.querySelector(".message_email").classList.remove("error_message");
+    } else {
+      document.querySelector(".message_email").classList.add("error_message");
+    };
   };
 
   const getIsFormValid = () => {
-    const valid = name && validateEmail(email)
-    
+    const valid = name && validateEmail(email) && phone;
+
     return (
       valid
     );
   };
-
-  
-
 
   return (
     <Step1Styled>
@@ -77,7 +73,6 @@ export default function Step01(props) {
 
           <input type="text" name="name" id="name" placeholder="e.g. Stephen King" onChange={(e) => {
             setName(e.target.value)
-            handleErrorName()
           }} />
 
           <div className="label_span">
@@ -86,19 +81,20 @@ export default function Step01(props) {
           </div>
 
           <input type="email" name="email" id="email" placeholder="e.g. stephenking@lorem.com" onChange={(e) => {
-            setEmail(e.target.value)
-            handleErrorEmail()
+            setEmail(e.target.value);
+            handleErrorEmail();
           }} />
 
           <div className="label_span">
             <label htmlFor="phone">Phone Number</label>
-            <span className="message">This field is required</span>
+            <span className="message_phone">This field is required</span>
           </div>
 
-          <input type="text" name="phone" id="phone" placeholder="e.g. +1 234 567 890" onChange={(e) => {
-            setPhone(e.target.value)
-            handlePhoneError()
-          }} />
+          <input type="text" name="phone" id="phone" placeholder="e.g. +1 234 567 890" onChange={
+            (e) => {
+              setPhone(e.target.value);
+            }
+          } />
 
           <Buttons valid={!getIsFormValid()} />
 
@@ -106,5 +102,5 @@ export default function Step01(props) {
       </form>
 
     </Step1Styled>
-  )
-}
+  );
+};

@@ -3,18 +3,23 @@ import { Buttons } from "../shared/Buttons";
 import iconArcade from "../../assets/images/icon-arcade.svg";
 import iconAdvanced from "../../assets/images/icon-advanced.svg";
 import iconPro from "../../assets/images/icon-pro.svg";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Step02(props) {
   
-  useEffect(() => {
-    props.handleColorSteps(1)
-  }, [])
+  const [select, setSelect] = useState("");
 
-  const handleSelect = (e) => {
-    document.querySelectorAll("label").forEach(element => element.classList.remove("selected"))
-    document.querySelector(`.${e.id}`).classList.add("selected")
-  }
+  useEffect(() => {
+
+    document.querySelectorAll("label").forEach(element => element.classList.remove("selected"));
+
+    console.log(select)
+
+  }, [select])
+
+  useEffect(() => {
+    props.handleColorSteps(1);
+  }, []);
 
   const handleRadio = (ev) => {
     console.log(ev.target.checked)
@@ -24,8 +29,8 @@ export default function Step02(props) {
       document.querySelector(".price_advanced").innerHTML = "$120/yr"
       document.querySelector(".price_pro").innerHTML = "$150/yr"
 
-      document.querySelector(".year_plan").classList.add("active")
-      document.querySelector(".mon_plan").classList.remove("active")
+      document.querySelector(".year_plan").classList.add("active_radio")
+      document.querySelector(".mon_plan").classList.remove("active_radio")
 
     } else {
       document.querySelector("form").classList.remove("plans_yearly")
@@ -33,17 +38,18 @@ export default function Step02(props) {
       document.querySelector(".price_advanced").innerHTML = "$12/mo"
       document.querySelector(".price_pro").innerHTML = "$15/mo"
 
-      document.querySelector(".year_plan").classList.remove("active")
-      document.querySelector(".mon_plan").classList.add("active")
+      document.querySelector(".year_plan").classList.remove("active_radio")
+      document.querySelector(".mon_plan").classList.add("active_radio")
     }
   }
+
 
   return (
     <Step2Styled>
       <h2>Select your plan</h2>
       <p>You have the option of monthly or yearly billing.</p>
 
-      <form noValidate >
+      <form >
         <fieldset>
           <legend className="sr-only">Select your plain, you have the option of monthly or yearly billing.</legend>
 
@@ -56,8 +62,10 @@ export default function Step02(props) {
                 <span className="price_arcade">$9/mo</span>
                 <span className="yearly">2 months free</span>
               </p>
+              <input type="radio" name="plan" id="arcade" onClick={(e) => {
+                setSelect(e.currentTarget.parentElement)
+              }}/>
             </label>
-            <input type="radio" name="plan" id="arcade" onClick={(e) => handleSelect(e.target)}/>
 
             <label htmlFor="advanced" className="advanced">
               <img src={iconAdvanced} alt="" aria-hidden="true" />
@@ -66,8 +74,10 @@ export default function Step02(props) {
                 <span className="price_advanced">$12/mo</span>
                 <span className="yearly">2 months free</span>
               </p>
+              <input type="radio" name="plan" id="advanced" onClick={(e) => {
+                setSelect(e.currentTarget.parentElement)
+              } }/>
             </label>
-            <input type="radio" name="plan" id="advanced" onClick={(e) => handleSelect(e.target)}/>
 
             <label htmlFor="iconPro" className="iconPro">
               <img src={iconPro} alt="" aria-hidden="true" />
@@ -76,13 +86,15 @@ export default function Step02(props) {
                 <span className="price_pro">$15/mo</span>
                 <span className="yearly">2 months free</span>
               </p>
+              <input type="radio" name="plan" id="iconPro" onClick={(e) => {
+              setSelect(e.currentTarget.parentElement)
+              } }/>
             </label>
-            <input type="radio" name="plan" id="iconPro" onClick={(e) => handleSelect(e.target)}/>
           </section>
 
           <div className="switch__container">
-            <span className="mon_plan active">Monthly</span>
-            <input id="switch-shadow" className="switch switch--shadow" type="checkbox" onChange={(e) => handleRadio(e)} />
+            <span className="mon_plan active_radio">Monthly</span>
+            <input id="switch-shadow" className="switch switch--shadow" type="checkbox" />
             <label htmlFor="switch-shadow"></label>
             <span className="year_plan">Yearly</span>
           </div>

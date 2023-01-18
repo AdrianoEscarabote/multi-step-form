@@ -8,6 +8,18 @@ export default function Step03(props) {
     props.handleColorSteps(2)
   }, [])
 
+  useEffect(() => {
+    document.querySelectorAll("label").forEach(element => {
+      element.addEventListener("click", () => {
+        if (element.className = "checked") {
+          element.classList.remove("checked")
+        } else {
+          element.classList.add("checked")
+        }
+      })
+    })
+  }, [])
+
   return (
     <Step3Styled>
       <h2>Pick add-ons</h2>

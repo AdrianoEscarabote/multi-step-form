@@ -2,13 +2,13 @@ import styled from "styled-components";
 import { MarineBlue } from "../../StyledComponents/colors";
 import { White } from "../../StyledComponents/colors";
 
-export function Buttons(props) {
+export function Buttons({ valid }) {
   return (
     <WrapperBtns className="buttons">
       <button type="button" className="back">
         Go Back
       </button>
-      <button type="submit" className="next" disabled={props.valid}>
+      <button type="submit" className={valid ? "next disabled" : "next"} disabled={valid}>
         Next Step
       </button>
     </WrapperBtns>
@@ -28,6 +28,19 @@ const WrapperBtns = styled.div`
     background-color: ${MarineBlue};
     color: ${White};
     cursor: pointer;
+  }
+
+  .next.disabled {
+    background-color: ${MarineBlue} !Important; 
+    opacity: 0.6;
+    cursor: default;
+  }
+
+  .back {
+    &:hover {
+      background-color: transparent !Important;
+      color: #000;
+    }
   }
 `
 
