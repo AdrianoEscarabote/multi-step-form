@@ -1,22 +1,26 @@
 import Step1Styled from "../../StyledComponents/form_style/Step1Styled";
-import { Buttons } from "../shared/Buttons";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-export default function Step01({ handleColorSteps }) {
+export default function Step01(props) {
   
   useEffect(() => {
-    handleColorSteps(0);
+    props.handleColorSteps(0);
   }, []);
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+
   
   useEffect(() => {
-    if (name) document.querySelector(".message_name").classList.remove("error_message");
-    else document.querySelector(".message_name").classList.add("error_message");
+    if (name) {
+      document.querySelector(".message_name").classList.remove("error_message");
+    } else {
+      document.querySelector(".message_name").classList.add("error_message");
+    };
   }, [name]);
-
+  
   useEffect(() => {
     const valid = String(phone).match(/^(\+0?1\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{3}$/);
     
@@ -71,9 +75,7 @@ export default function Step01({ handleColorSteps }) {
             <span className="message_name">This field is required</span>
           </div>
 
-          <input type="text" name="name" id="name" placeholder="e.g. Stephen King" onChange={(e) => {
-            setName(e.target.value)
-          }} />
+          <input type="text" name="name" id="name" placeholder="e.g. Stephen King" onChange={(e) => setName(e.target.value) } />
 
           <div className="label_span">
             <label htmlFor="email">Email Address</label>
@@ -96,7 +98,11 @@ export default function Step01({ handleColorSteps }) {
             }
           } />
 
-          <Buttons valid={!getIsFormValid()} />
+          <div className="link-router">
+            <Link to="/plan" className="link">Next</Link>
+          </div>
+
+          {/* <Buttons valid={!getIsFormValid()} /> */}
 
         </fieldset>
       </form>

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Alabaster, LightBlue, LightGray, MarineBlue } from "../colors";
+import { Alabaster, LightBlue, LightGray, MarineBlue, White } from "../colors";
 import { Coolgray } from "../colors";
 
 const Step2Styled = styled.div`
@@ -74,6 +74,33 @@ const Step2Styled = styled.div`
         }
         input {
           display: none;
+        }
+      }
+
+      .link-router {
+        margin-top: 40px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        bottom: 0;
+
+        a {
+          text-decoration: none;
+          width: 121.72px;
+          border-radius: 8px;
+          height: 48px;
+          background-color: ${MarineBlue};
+          color: ${White};
+          cursor: pointer;
+          display: grid;
+          place-content: center;
+        }
+
+        .link.disabled {
+          background-color: ${MarineBlue} !Important; 
+          opacity: 0.6;
+          cursor: not-allowed;
         }
       }
   
@@ -155,12 +182,6 @@ const Step2Styled = styled.div`
         transform: translateX(22px);
       }
     }
-
-  }
-
-  .buttons {
-    position: absolute;
-    bottom: 0;
   }
 
   .selected {

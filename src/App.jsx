@@ -1,6 +1,8 @@
+import { BrowserRouter } from "react-router-dom";
 import Form from "./components/Form";
 import Thankyou from "./components/Thankyou";
 import Article from "./StyledComponents/Article";
+import GlobalStyle from "./StyledComponents/global_style";
 
 export default function App() {
 
@@ -15,39 +17,44 @@ export default function App() {
   };
 
   return (
-    <Article>
-      <section className="steps">
-        <div className="step">
-          <p className="number-step">1</p>
-          <div className="info">
-            <p className="step_num">Step 1</p>
-            <p>Your info</p>
+    <>
+      <GlobalStyle />
+      <Article>
+        <section className="steps">
+          <div className="step">
+            <p className="number-step">1</p>
+            <div className="info">
+              <p className="step_num">Step 1</p>
+              <p>Your info</p>
+            </div>
           </div>
-        </div>
-        <div className="step">
-          <p className="number-step">2</p>
-          <div className="info">
-            <p className="step_num">Step 2</p>
-            <p>Select plan</p>
+          <div className="step">
+            <p className="number-step">2</p>
+            <div className="info">
+              <p className="step_num">Step 2</p>
+              <p>Select plan</p>
+            </div>
           </div>
-        </div>
-        <div className="step">
-          <p className="number-step">3</p>
-          <div className="info">
-            <p className="step_num">Step 3</p>
-            <p>Add-ons</p>
+          <div className="step">
+            <p className="number-step">3</p>
+            <div className="info">
+              <p className="step_num">Step 3</p>
+              <p>Add-ons</p>
+            </div>
           </div>
-        </div>
-        <div className="step">
-          <p className="number-step">4</p>
-          <div className="info">
-            <p className="step_num">Step 4</p>
-            <p>Summary</p>
+          <div className="step">
+            <p className="number-step">4</p>
+            <div className="info">
+              <p className="step_num">Step 4</p>
+              <p>Summary</p>
+            </div>
           </div>
-        </div>
-      </section>
-      <Form handleColorSteps={handleColorSteps}/>
-      {/* <Thankyou /> */}
-    </Article>
+        </section>
+        <BrowserRouter>
+          <Form handleColorSteps={handleColorSteps}/>
+        </BrowserRouter>
+        {/* <Thankyou /> */}
+      </Article>
+    </>
   )
 }

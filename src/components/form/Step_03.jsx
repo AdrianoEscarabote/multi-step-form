@@ -1,6 +1,6 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import Step3Styled from "../../StyledComponents/form_style/Step3Styled";
-import { Buttons } from "../shared/Buttons";
 
 export default function Step03(props) {
   
@@ -68,9 +68,12 @@ export default function Step03(props) {
             </label>
           </section>
 
-          <Buttons />
-        </fieldset>
+          <div className="link-router">
+            <Link to="/plan">Go Back</Link>
+            <a href="https://web.whatsapp.com/">Go Next</a>
+          </div>
 
+        </fieldset>
       </form>
     </Step3Styled>
   )

@@ -1,9 +1,9 @@
 import Step2Styled from "../../StyledComponents/form_style/Step2Styled";
-import { Buttons } from "../shared/Buttons";
 import iconArcade from "../../assets/images/icon-arcade.svg";
 import iconAdvanced from "../../assets/images/icon-advanced.svg";
 import iconPro from "../../assets/images/icon-pro.svg";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Step02(props) {
   
@@ -99,7 +99,10 @@ export default function Step02(props) {
             <span className="year_plan">Yearly</span>
           </div>
 
-          <Buttons />
+          <div className="link-router">
+            <Link to="/">Go back</Link>
+            <Link to="/contact">Go next</Link>
+          </div>
         </fieldset>
 
       </ form>
