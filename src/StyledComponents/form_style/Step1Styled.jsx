@@ -6,7 +6,7 @@ import { Magnolia } from "../colors";
 
 const Step1Styled = styled.div`
   display: flex;
-  padding: 20px 50px;
+  padding: 40px 84px 0px 50px;
   align-items: flex-start;
   flex-direction: column;
   width: 100%;
@@ -30,19 +30,18 @@ const Step1Styled = styled.div`
   }
 
   form {
-    margin-top: 30px;
+    margin-top: 36px;
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column; 
     position: relative;
-    gap: 15px;
 
     fieldset {
       border: transparent;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 18px;
 
       .label_span {
         display: flex;
@@ -59,6 +58,7 @@ const Step1Styled = styled.div`
       }
     
       input {
+        margin-top: -8px; 
         width: 100%;
         background: #FFFFFF;
         border: 1px solid #D6D9E5;
@@ -94,14 +94,15 @@ const Step1Styled = styled.div`
           display: grid;
           place-content: center;
           position: absolute;
-          bottom: 0;
+          bottom: 16px;
           right: 0;
+          pointer-events: auto;
         }
 
         .link.disabled {
           background-color: ${MarineBlue} !Important; 
           opacity: 0.6;
-          cursor: not-allowed;
+          pointer-events: none;
         }
       }
     }

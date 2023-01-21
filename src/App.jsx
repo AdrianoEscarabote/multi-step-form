@@ -1,6 +1,7 @@
 import { BrowserRouter } from "react-router-dom";
 import Form from "./components/Form";
 import Thankyou from "./components/Thankyou";
+import Context from "./context";
 import Article from "./StyledComponents/Article";
 import GlobalStyle from "./StyledComponents/global_style";
 

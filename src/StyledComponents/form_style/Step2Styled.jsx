@@ -4,7 +4,7 @@ import { Coolgray } from "../colors";
 
 const Step2Styled = styled.div`
   color: #000;
-  padding: 20px 50px;
+  padding: 40px 85px 40px 50px;
   position: relative;
   height: 100%;
   width: 100%;
@@ -29,11 +29,10 @@ const Step2Styled = styled.div`
   }
   
   form {
-    margin-top: 30px;
+    margin-top: 36px;
     position: relative;
     width: 100%;
     height: 100%;
-
 
     fieldset {
       border: transparent;
@@ -43,16 +42,17 @@ const Step2Styled = styled.div`
         gap: 18px;
   
         label {
-          padding: 10px;
+          padding: 21px 16px;
           width: 100%;
           background-color: #fff;   
           border: 1px solid #6069f363;
           display: flex;
           flex-direction: column;
           justify-content: space-between;
+          gap: 30px;
           cursor: pointer;
           max-width: 141.83px;
-          height: 149.86px;
+          height: 159.86px;
           border: 1px solid #DBDBDD;
           border-radius: 10px;
 
@@ -83,7 +83,8 @@ const Step2Styled = styled.div`
         display: flex;
         justify-content: space-between;
         position: absolute;
-        bottom: 0;
+        bottom: -24px;
+        left: ;
 
         a {
           text-decoration: none;
@@ -95,6 +96,14 @@ const Step2Styled = styled.div`
           cursor: pointer;
           display: grid;
           place-content: center;
+          font-weight: 700;
+        }
+
+        .back {
+          background-color: transparent;
+          color: ${Coolgray};
+          position: relative;
+          left: -30px; 
         }
 
         .link.disabled {

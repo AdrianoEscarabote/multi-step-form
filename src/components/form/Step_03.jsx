@@ -2,10 +2,10 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Step3Styled from "../../StyledComponents/form_style/Step3Styled";
 
-export default function Step03(props) {
+export default function Step03({ handleColorSteps }) {
   
   useEffect(() => {
-    props.handleColorSteps(2)
+    handleColorSteps(2)
   }, [])
 
   useEffect(() => {
@@ -70,7 +70,7 @@ export default function Step03(props) {
 
           <div className="link-router">
             <Link to="/plan">Go Back</Link>
-            <a href="https://web.whatsapp.com/">Go Next</a>
+            <Link to="/finishing"> Next Step </Link>
           </div>
 
         </fieldset>

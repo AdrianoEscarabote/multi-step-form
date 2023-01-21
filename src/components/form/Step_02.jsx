@@ -100,8 +100,8 @@ export default function Step02(props) {
           </div>
 
           <div className="link-router">
-            <Link to="/">Go back</Link>
-            <Link to="/contact">Go next</Link>
+            <Link to="/" className="back">Go Back</Link>
+            <Link to="/contact">Next Step</Link>
           </div>
         </fieldset>
 

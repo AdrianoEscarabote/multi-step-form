@@ -7,27 +7,32 @@ import { LightBlue } from "../StyledComponents/colors";
 import { MarineBlue } from "../StyledComponents/colors";
 
 const Article = styled.article`
-  width: 900px;
+  width: 940px;
   height: 600px;
-  border-radius: 20px;
-  padding: 20px;
+  border-radius: 15px;
+  padding: 16px;
   color: ${LightGray};
   background-color: #fff;
   display: grid;
   grid-template-columns: 274px auto;
-  gap: 10px;
+  gap: 50px;
+  margin-bottom: 14px;
   
   .steps {
     background: url(${bg_sidebar}) no-repeat;
     background-size: 100%; 
-    border-radius: 15px;
+    border-radius: 9px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 39px 0px 0px 32px;
+    gap: 31px;
 
     .step {
-      padding: 20px;
       grid-column: 1;
       display: flex;
       align-items: center;
-      gap: 17px;
+      gap: 15.2px;
 
       .number-step {
         width: 33px;
@@ -46,12 +51,12 @@ const Article = styled.article`
       .info {
         display: flex;
         flex-direction: column;
-        gap: 12px;
+        gap: 4px;
         p {
           font-weight: 700;
           font-size: 14px;
           line-height: 16px;
-          letter-spacing: 1px;
+          letter-spacing: 1.2px;
           text-transform: uppercase;
         }
 
@@ -59,6 +64,7 @@ const Article = styled.article`
           font-weight: 400;
           font-size: 12px;
           line-height: 14px;
+          letter-spacing: 0.2px;
           color: ${PastelBlue}; 
         }
       }

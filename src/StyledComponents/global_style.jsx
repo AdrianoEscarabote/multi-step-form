@@ -41,7 +41,7 @@ const globalStyle = createGlobalStyle`
   }
   input,
   button,
-  textarea,
+  textarea, 
   select {
     font: inherit;
   }
@@ -67,7 +67,7 @@ const globalStyle = createGlobalStyle`
     justify-content: center;
     flex-direction: column;
     font-size: 16px;
-    padding: 10px;
+    padding: 10px ;
   }
 
   .sr-only {
