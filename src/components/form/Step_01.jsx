@@ -1,10 +1,17 @@
 import Step1Styled from "../../StyledComponents/form_style/Step1Styled";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { useSetInfo } from "../../context";
 
 export default function Step01({ handleColorSteps }) {
 
-  const effectRan = useRef(false)
+  const setInfo = useSetInfo();
+
+  const handleClick = () => {
+    setInfo({ name, email, phone })
+  }
+
+  const effectRan = useRef(false);
   
   useEffect(() => {
     handleColorSteps(0);
@@ -21,11 +28,11 @@ export default function Step01({ handleColorSteps }) {
       } else {
         document.querySelector(".message_name").classList.add("error_message");
       };
-      console.log("i fire once")
-    }
+      console.log("i fire once");
+    };
     return () => {
-      effectRan.current = true
-    }  
+      effectRan.current = true;
+    } ; 
   }, [name]);
 
   useEffect(() => {
@@ -49,7 +56,11 @@ export default function Step01({ handleColorSteps }) {
 
   useEffect(() => {
     if (effectRan.current === true) { 
-      const emailValid = validateEmail(email)
+      const emailValid = String(email)
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
       
       if (emailValid) {
         document.querySelector(".message_email").classList.remove("error_message");
@@ -62,16 +73,17 @@ export default function Step01({ handleColorSteps }) {
     }
   }, [email]);
 
-  const validateEmail = (email) => {
+  /* const validateEmail = (email) => {
     return String(email)
       .toLowerCase()
       .match(
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       );
   };
+ */
 
   const getIsFormValid = () => {
-    const valid = name && validateEmail(email) && validatePhone(phone);
+    const valid = name && email && validatePhone(phone);
 
     return (
       valid
@@ -113,10 +125,8 @@ export default function Step01({ handleColorSteps }) {
           } />
 
           <div className="link-router">
-            <Link to="/plan" className={getIsFormValid() ? "link" : "link disabled"} >Next Step</Link>
+            <Link to="/plan" className={getIsFormValid() ? "link" : "link disabled"} onClick={() => handleClick()}>Next Step</Link>
           </div>
-
-          {/* <Buttons valid={!getIsFormValid()} /> */}
 
         </fieldset>
       </form>

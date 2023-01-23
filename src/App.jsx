@@ -1,9 +1,9 @@
 import { BrowserRouter } from "react-router-dom";
 import Form from "./components/Form";
 import Thankyou from "./components/Thankyou";
-import Context from "./context";
 import Article from "./StyledComponents/Article";
 import GlobalStyle from "./StyledComponents/global_style";
+import { InfoProvider } from "./context";
 
 export default function App() {
 
@@ -18,7 +18,11 @@ export default function App() {
   };
 
   return (
-    <>
+    <InfoProvider value={{
+      name: "",
+      email: "",
+      phone: ""
+    }}>
       <GlobalStyle />
       <Article>
         <section className="steps">
@@ -56,6 +60,6 @@ export default function App() {
         </BrowserRouter>
         {/* <Thankyou /> */}
       </Article>
-    </>
+    </InfoProvider>
   )
 }

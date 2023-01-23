@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Step4Styled = styled.div`
-  background-color: #000;
+  background-color: #466;
   color: #fff;
 `
 

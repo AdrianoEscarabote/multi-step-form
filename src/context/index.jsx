@@ -1,14 +1,25 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { useContext } from "react";
 
-const UserContext = createContext(undefined)
+const InfoContext = React.createContext();
+const UpdateInfoContext = React.createContext();
 
-export const UserProvider = ({ children }) => {
-  const [user] = useState({
-    name: "john",
-    email: "john@example.com",
-    dob: "01/01/2020"
-  });
-  return <UserContext.Provider value={{ user }}></UserContext.Provider>
+export const useInfo = () => {
+  return useContext(InfoContext);
+};
+
+export const useSetInfo = () => {
+  return useContext(UpdateInfoContext);
+};
+
+export const InfoProvider = ({ value, children }) => {
+
+  const [info, setInfo] = React.useState(value);
+
+  return (
+    <InfoContext.Provider value={info}>
+      <UpdateInfoContext.Provider value={setInfo}>
+        {children}
+      </UpdateInfoContext.Provider>
+    </InfoContext.Provider>
+  )
 }
-
-export const useUser = () => useContext(UserContext)
