@@ -3,7 +3,7 @@ import { Coolgray, LightGray, Magnolia, MarineBlue, PurplishBlue, White } from "
 
 const Step3Styled = styled.div`
   color: black;
-  padding: 20px 50px;
+  padding: 1.25rem 3.125rem;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -12,19 +12,19 @@ const Step3Styled = styled.div`
 
   h2 {
     color: ${MarineBlue};
-    font-size: 32.5144px;
-    line-height: 33px;  
-    padding-bottom: 10px;
+    font-size: 2.0322rem;
+    line-height: 2.0625rem;  
+    padding-bottom: 0.625rem;
   }
 
   p {
     color: ${Coolgray};
-    font-size: 16.1285px;
-    line-height: 24px;
+    font-size: 1.008rem;
+    line-height: 1.5rem;
   }
 
   form {
-    margin-top: 36px;
+    margin-top: 2.25rem;
     height: 100%;
     position: relative;
 
@@ -33,25 +33,25 @@ const Step3Styled = styled.div`
 
       .check {
         display: flex;
-        gap: 15px;
+        gap: 0.9375rem;
         flex-direction: column;
     
         label {
-          padding: 22px;
-          border: 1px solid;
+          padding: 1.375rem;
+          border: 0.0625rem solid;
           width: 100%;
-          height: 81.92px;
+          height: 5.12rem;
           display: flex;
           align-items: center;
           justify-content: flex-start;
-          gap: 20px;
-          border-radius: 10px;
-          border: 1px solid ${LightGray};
+          gap: 1.25rem;
+          border-radius: 0.625rem;
+          border: 0.0625rem solid ${LightGray};
           position: relative;
           cursor: pointer;
 
           &:hover {
-            border: 1px solid ${PurplishBlue};
+            border: 0.0625rem solid ${PurplishBlue};
           }
 
           .details {
@@ -59,33 +59,33 @@ const Step3Styled = styled.div`
             flex-direction: column;
             justify-self: flex-start;
             align-items: flex-start;
-            gap: 8.11px;
+            gap: 0.5069rem;
 
             p {
               color: ${MarineBlue};
-              font-size: 16.1929px;
+              font-size: 1.0121rem;
               font-weight: 600;
-              line-height: 16px;
+              line-height: 1rem;
             }
 
             .info {
               font-weight: 400;
-              font-size: 14.1929px;
-              line-height: 14px;
+              font-size: 0.8871rem;
+              line-height: 0.875rem;
               color: ${Coolgray}; 
             }
           }
 
           .price {
             position: absolute;
-            right: 20px;
+            right: 1.25rem;
             color: ${PurplishBlue};
           }
         }
       }
 
       .link-router {
-        margin-top: 40px;
+        margin-top: 2.5rem;
         width: 100%;
         display: flex;
         justify-content: space-between;
@@ -94,9 +94,9 @@ const Step3Styled = styled.div`
 
         a {
           text-decoration: none;
-          width: 121.72px;
-          border-radius: 8px;
-          height: 48px;
+          width: 7.6075rem;
+          border-radius: 0.5rem;
+          height: 3rem;
           background-color: ${MarineBlue};
           color: ${White};
           cursor: pointer;
@@ -114,7 +114,7 @@ const Step3Styled = styled.div`
   }
 
   .checked {
-    border: 1px solid ${PurplishBlue} !Important;
+    border: 0.0625rem solid ${PurplishBlue} !Important;
   }
 `
 

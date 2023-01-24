@@ -21,7 +21,9 @@ export default function App() {
     <InfoProvider value={{
       name: "",
       email: "",
-      phone: ""
+      phone: "",
+      plan: "",
+      type: false
     }}>
       <GlobalStyle />
       <Article>

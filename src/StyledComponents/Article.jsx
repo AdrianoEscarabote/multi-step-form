@@ -1,70 +1,70 @@
 import styled from "styled-components";
 import bg_sidebar from "../assets/images/bg-sidebar-desktop.svg";
-import { LightGray } from "../StyledComponents/colors";
+import { LightGray, White } from "../StyledComponents/colors";
 import bg_sidebar_mobile from "../assets/images/bg-sidebar-mobile.svg";
 import { PastelBlue } from "../StyledComponents/colors";
 import { LightBlue } from "../StyledComponents/colors";
 import { MarineBlue } from "../StyledComponents/colors";
 
 const Article = styled.article`
-  width: 940px;
-  height: 600px;
-  border-radius: 15px;
-  padding: 16px;
+  width: 58.75rem;
+  height: 37.5rem;
+  border-radius: 0.9375rem;
+  padding: 1rem;
   color: ${LightGray};
-  background-color: #fff;
+  background-color: ${White};
   display: grid;
-  grid-template-columns: 274px auto;
-  gap: 50px;
-  margin-bottom: 14px;
+  grid-template-columns: 17.125rem auto;
+  gap: 3.125rem;
+  margin-bottom: 0.375rem;
   
   .steps {
     background: url(${bg_sidebar}) no-repeat;
     background-size: 100%; 
-    border-radius: 9px;
+    border-radius: 0.5625rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 39px 0px 0px 32px;
-    gap: 31px;
+    padding: 2.4375rem 0rem 0rem 2rem;
+    gap: 1.9375rem;
 
     .step {
       grid-column: 1;
       display: flex;
       align-items: center;
-      gap: 15.2px;
+      gap: 0.95rem;
 
       .number-step {
-        width: 33px;
-        height: 33px;
-        padding: 5px;
+        width: 2.0625rem;
+        height: 2.0625rem;
+        padding: 0.3125rem;
         display: grid; 
         place-content: center;
         background-color: transparent; 
-        border: 1px solid #FFFFFF;
-        border-radius: 33px;
+        border: 0.0625rem solid #FFFFFF;
+        border-radius: 2.0625rem;
         font-weight: 700;
-        font-size: 14px;
-        line-height: 16px;
+        font-size: 0.875rem;
+        line-height: 1rem;
       }
 
       .info {
         display: flex;
         flex-direction: column;
-        gap: 4px;
+        gap: 0.25rem;
         p {
           font-weight: 700;
-          font-size: 14px;
-          line-height: 16px;
-          letter-spacing: 1.2px;
+          font-size: 0.875rem;
+          line-height: 1rem;
+          letter-spacing: 0.075rem;
           text-transform: uppercase;
         }
 
         .step_num {
           font-weight: 400;
-          font-size: 12px;
-          line-height: 14px;
-          letter-spacing: 0.2px;
+          font-size: 0.75rem;
+          line-height: 0.875rem;
+          letter-spacing: 0.0125rem;
           color: ${PastelBlue}; 
         }
       }
@@ -76,16 +76,16 @@ const Article = styled.article`
     color: ${MarineBlue};
   }
 
-  @media (max-width: 920px) {
+  @media (max-width: 57.5rem) {
     width: 100%;
-    grid-template-columns: 244px auto;
-    height: 550px;
+    grid-template-columns: 15.25rem auto;
+    height: 34.375rem;
   }
 
-  @media (max-width: 720px) {
+  @media (max-width: 45rem) {
     width: 100%;
     height: 100vh;
-    border-radius: 0px;
+    border-radius: 0rem;
     display: flex;
     flex-direction: column;
     background-color: ${LightBlue};
@@ -94,12 +94,12 @@ const Article = styled.article`
       display: flex;
       align-items: flex-start; 
       justify-content: center;
-      padding-top: 20px;
-      border-radius: 0px;
+      padding-top: 1.25rem;
+      border-radius: 0rem;
       background: url(${bg_sidebar_mobile}) no-repeat;
       background-size: 100%;
       width: 100%;
-      height: 180px;
+      height: 11.25rem;
       position: absolute;
       left: 0;
       top: 0;

@@ -17,6 +17,8 @@ export default function Step04({ handleColorSteps }) {
         <h1>{getInfo.name} ::</h1>
         <h1>{getInfo.email} ::</h1>
         <h1>{getInfo.phone} ::</h1>
+        <h1>{getInfo.plan} ::</h1>
+        <h1>{getInfo.type} ::</h1>
         <p>Double-check everything looks OK before confirming.</p>
         <span>Total (per month/year)</span>
 

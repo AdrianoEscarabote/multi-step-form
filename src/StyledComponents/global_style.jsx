@@ -1,5 +1,5 @@
 import {createGlobalStyle} from "styled-components";
-import {LightBlue} from "./colors";
+import {bgColor, LightBlue, White} from "./colors";
 
 const globalStyle = createGlobalStyle`
   *,
@@ -60,31 +60,31 @@ const globalStyle = createGlobalStyle`
   }
 
   body {
-    background-color: ${LightBlue};
+    background-color: ${bgColor};
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    font-size: 16px;
-    padding: 10px ;
+    font-size: 1rem;
+    padding: 0.625rem ;
   }
 
   .sr-only {
     position: absolute;
-    width: 1px;
-    height: 1px;
+    width: 0.0625rem;
+    height: 0.0625rem;
     padding: 0;
-    margin: -1px;
+    margin: -0.0625rem;
     overflow: hidden;
     clip: rect(0,0,0,0);
     border: 0;
   }
 
-  @media (max-width: 720px) {
+  @media (max-width: 45rem) {
     body {
-      padding: 0px !Important;
-      background-color: #fff;
+      padding: 0rem !Important;
+      background-color: ${White};
     }
   }
 `

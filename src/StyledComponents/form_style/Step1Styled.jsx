@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import { MarineBlue } from "../colors";
+import { MarineBlue, StrawberryRed } from "../colors";
 import { Coolgray } from "../colors";
 import { White } from "../colors";
 import { Magnolia } from "../colors";
 
 const Step1Styled = styled.div`
   display: flex;
-  padding: 40px 84px 0px 50px;
+  padding: 2.5rem 5.25rem 0rem 3.125rem;
   align-items: flex-start;
   flex-direction: column;
   width: 100%;
@@ -15,22 +15,22 @@ const Step1Styled = styled.div`
   position: relative;
 
   h2 {
-    font-size: 32px;
+    font-size: 2rem;
     font-weight: 700;
-    line-height: 37px;
+    line-height: 2.3125rem;
     color: ${MarineBlue}; 
   }
 
   p {
-    padding-top: 10px;
+    padding-top: 0.625rem;
     font-weight: 400;
-    font-size: 16px;
-    line-height: 25px;
+    font-size: 1rem;
+    line-height: 1.5625rem;
     color: ${Coolgray}; 
   }
 
   form {
-    margin-top: 36px;
+    margin-top: 2.25rem;
     width: 100%;
     height: 100%;
     display: flex;
@@ -41,14 +41,14 @@ const Step1Styled = styled.div`
       border: transparent;
       display: flex;
       flex-direction: column;
-      gap: 18px;
+      gap: 1.125rem;
 
       .label_span {
         display: flex;
         justify-content: space-between;
         font-weight: 400;
-        font-size: 14px;
-        line-height: 16px;
+        font-size: 0.875rem;
+        line-height: 1rem;
         color: ${MarineBlue};
   
         span {
@@ -58,16 +58,16 @@ const Step1Styled = styled.div`
       }
     
       input {
-        margin-top: -8px; 
+        margin-top: -0.5rem; 
         width: 100%;
         background: #FFFFFF;
-        border: 1px solid #D6D9E5;
-        border-radius: 8px;
-        height: 50px;
-        padding-left: 17px;
+        border: 0.0625rem solid #D6D9E5;
+        border-radius: 0.5rem;
+        height: 3.125rem;
+        padding-left: 1.0625rem;
         font-weight: 500;
-        font-size: 16px;
-        line-height: 18px;
+        font-size: 1rem;
+        line-height: 1.125rem;
         display: flex;
         align-items: center;
         color: ${MarineBlue};
@@ -78,23 +78,23 @@ const Step1Styled = styled.div`
       }
 
       .link-router {
-        margin-top: 40px;
+        margin-top: 2.5rem;
         width: 100%;
         display: flex;
         justify-content: space-between;
 
         a {
           text-decoration: none;
-          width: 121.72px;
-          border-radius: 8px;
-          height: 48px;
+          width: 7.6075rem;
+          border-radius: 0.5rem;
+          height: 3rem;
           background-color: ${MarineBlue};
           color: ${White};
           cursor: pointer;
           display: grid;
           place-content: center;
           position: absolute;
-          bottom: 16px;
+          bottom: 1rem;
           right: 0;
           pointer-events: auto;
         }
@@ -110,13 +110,19 @@ const Step1Styled = styled.div`
 
   .error_message {
     display: block !Important;
-    color: red !Important;
+    color: ${StrawberryRed} !Important;
+    font-weight: 700;
   }
 
-  @media(max-width: 700px) {
+  .error_input {
+    outline: 0.0625rem solid ${StrawberryRed};
+    border: 0.0625rem solid ${StrawberryRed};
+  }
+
+  @media(max-width: 43.75rem) {
     background-color: white;
-    top: 100px;
-    border-radius: 10px;
+    top: 6.25rem;
+    border-radius: 0.625rem;
     background-color: #fff;
   }
 `

@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import { Alabaster, LightBlue, LightGray, MarineBlue, White } from "../colors";
+import { Alabaster, LightBlue, LightGray, MarineBlue, PurplishBlue, White } from "../colors";
 import { Coolgray } from "../colors";
 
 const Step2Styled = styled.div`
   color: #000;
-  padding: 40px 85px 40px 50px;
+  padding: 2.5rem 5.3125rem 2.5rem 3.125rem;
   position: relative;
   height: 100%;
   width: 100%;
@@ -14,22 +14,22 @@ const Step2Styled = styled.div`
   position: relative;
 
   h2 {
-    font-size: 32px;
+    font-size: 2rem;
     font-weight: 700;
-    line-height: 37px;
+    line-height: 2.3125rem;
     color: ${MarineBlue}; 
-    padding-bottom: 10px;
+    padding-bottom: 0.625rem;
   }
 
   p {
     font-weight: 400;
-    font-size: 16px;
-    line-height: 25px;
+    font-size: 1rem;
+    line-height: 1.5625rem;
     color: ${Coolgray}; 
   }
   
   form {
-    margin-top: 36px;
+    margin-top: 2.25rem;
     position: relative;
     width: 100%;
     height: 100%;
@@ -39,31 +39,31 @@ const Step2Styled = styled.div`
 
       .plans {
         display: flex;
-        gap: 18px;
+        gap: 1.125rem;
   
         label {
-          padding: 21px 16px;
+          padding: 1.3125rem 1rem;
           width: 100%;
           background-color: #fff;   
-          border: 1px solid #6069f363;
+          border: 0.0625rem solid #6069f363;
           display: flex;
           flex-direction: column;
           justify-content: space-between;
-          gap: 30px;
+          gap: 1.875rem;
           cursor: pointer;
-          max-width: 141.83px;
-          height: 159.86px;
-          border: 1px solid #DBDBDD;
-          border-radius: 10px;
+          max-width: 8.8644rem;
+          height: 9.9913rem;
+          border: 0.0625rem solid #DBDBDD;
+          border-radius: 0.625rem;
 
 
           &:hover {
-            border: 1px solid #524E98;
+            border: 0.0625rem solid #524E98;
           }
           
           img {
-            width: 40px;
-            height: 40px;
+            width: 2.5rem;
+            height: 2.5rem;
           }
     
           p {
@@ -78,19 +78,19 @@ const Step2Styled = styled.div`
       }
 
       .link-router {
-        margin-top: 40px;
+        margin-top: 2.5rem;
         width: 100%;
         display: flex;
         justify-content: space-between;
         position: absolute;
-        bottom: -24px;
+        bottom: -1.5rem;
         left: ;
 
         a {
           text-decoration: none;
-          width: 121.72px;
-          border-radius: 8px;
-          height: 48px;
+          width: 7.6075rem;
+          border-radius: 0.5rem;
+          height: 3rem;
           background-color: ${MarineBlue};
           color: ${White};
           cursor: pointer;
@@ -103,7 +103,7 @@ const Step2Styled = styled.div`
           background-color: transparent;
           color: ${Coolgray};
           position: relative;
-          left: -30px; 
+          left: -1.875rem; 
         }
 
         .link.disabled {
@@ -116,32 +116,32 @@ const Step2Styled = styled.div`
       .switch__container {
         position: absolute; 
         background-color: ${Alabaster};
-        border-radius: 10px;
-        top: 182px;
+        border-radius: 0.625rem;
+        top: 11.375rem;
         display: flex;
         align-items: center;
         width: 100%;
-        padding: 16px;
-        gap: 20px;
+        padding: 1rem;
+        gap: 1.25rem;
         justify-content: center;
   
         span.active_radio {
           color: ${MarineBlue};
           font-weight: 600;
-          font-size: 15.1285px;
-          line-height: 15px;
+          font-size: 0.9455rem;
+          line-height: 0.9375rem;
         }
         span {
           color: ${Coolgray};
           font-weight: 600;
-          font-size: 15.1285px;
-          line-height: 15px;
+          font-size: 0.9455rem;
+          line-height: 0.9375rem;
         }
       }
   
       .switch {
         position: absolute;
-        margin-left: -9999px;
+        margin-left: -624.9375rem;
         visibility: hidden;
       }
     
@@ -154,32 +154,32 @@ const Step2Styled = styled.div`
       }
   
       .switch--shadow + label {
-        padding: 2px;
-        width: 46px;
-        height: 25px;
+        padding: 0.125rem;
+        width: 2.875rem;
+        height: 1.5625rem;
         background-color: #dddddd;
-        border-radius: 60px;
+        border-radius: 3.75rem;
       }
       .switch--shadow + label:before,
       .switch--shadow + label:after {
         display: block;
         position: absolute;
-        top: 1px;
-        left: 1px;
-        bottom: 1px;
+        top: 0.0625rem;
+        left: 0.0625rem;
+        bottom: 0.0625rem;
         content: '';
       }
       .switch--shadow + label:before {
-        right: 1px;
+        right: 0.0625rem;
         background-color: #CFD8EF;
-        border-radius: 60px;
+        border-radius: 3.75rem;
         transition: all 0.4s;
       }
       .switch--shadow + label:after {
-        height: 18px;
-        width: 18px;
-        top: 3.4px;
-        left: 3px;
+        height: 1.125rem;
+        width: 1.125rem;
+        top: 0.2125rem;
+        left: 0.1875rem;
         background-color: #fff;
         border-radius: 50%;
         transition: all 0.4s;
@@ -188,19 +188,25 @@ const Step2Styled = styled.div`
         background-color: #7AEADF;
       }
       .switch--shadow:checked + label:after {
-        transform: translateX(22px);
+        transform: translateX(1.375rem);
       }
     }
   }
 
+  .link.disabled {
+    background-color: ${MarineBlue} !Important; 
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
   .selected {
-    border: 1px solid #524E98 !Important;
+    border: 0.0625rem solid ${PurplishBlue} !Important;
   }
   
   .plans_yearly {
     .plans {
       label {
-        height: 158px !Important;
+        height: 10.8125rem !Important;
       }
     }
     
@@ -214,8 +220,8 @@ const Step2Styled = styled.div`
     display: none;
   }
 
-  @media (max-width: 720px) {
-    margin-top: 100px;
+  @media (max-width: 45rem) {
+    margin-top: 6.25rem;
     z-index: 100;
   }
 `
