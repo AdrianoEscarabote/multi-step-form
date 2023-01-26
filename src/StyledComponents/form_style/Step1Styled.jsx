@@ -123,8 +123,12 @@ const Step1Styled = styled.div`
   @media(max-width: 43.75rem) {
     
     @media(max-height: 800px) {
-      margin: 80px 0px 220px 0px!Important;
+      margin-top: 0px !Important;
     } 
+
+    @media(max-height: 700px) {
+      margin-top: 70px !Important;
+    }
 
     border-radius: 0.625rem;
     padding: 2.5rem 2.25rem 3rem 2.25rem;
@@ -134,6 +138,7 @@ const Step1Styled = styled.div`
     margin-top: -180px;
     height: auto;
     z-index: 100;
+    margin-bottom: 2.5rem;
 
     form {
       position: initial !Important;

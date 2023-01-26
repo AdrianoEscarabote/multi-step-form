@@ -79,25 +79,29 @@ export default function Step02({ handleColorSteps }) {
   }
 
   const handleClick = () => {
-    const chosenPlan = document.querySelector("label.selected").className
-    let priceChosenPlan = ""
-
-    if (chosenPlan.includes("pro")) {
-      priceChosenPlan = pricePro
-    } else if (chosenPlan.includes("advanced")) {
-      priceChosenPlan = advancedPrice
-    } else {
-      priceChosenPlan = arcadePrice
-    }
-    
-    if (target) {
-      setInfo(prevState => {
-        return {...prevState, plan: select, type: "yearly", pricePlan: priceChosenPlan}
-      })
-    } else {
-      setInfo(prevState => {
-        return {...prevState, plan: select, type: "monthly", pricePlan: priceChosenPlan}
-      })
+    try { 
+      const chosenPlan = document.querySelector("label.selected").className
+      let priceChosenPlan = ""
+  
+      if (chosenPlan.includes("pro")) {
+        priceChosenPlan = pricePro
+      } else if (chosenPlan.includes("advanced")) {
+        priceChosenPlan = advancedPrice
+      } else {
+        priceChosenPlan = arcadePrice
+      }
+      
+      if (target) {
+        setInfo(prevState => {
+          return {...prevState, plan: select, type: "yearly", pricePlan: priceChosenPlan}
+        })
+      } else {
+        setInfo(prevState => {
+          return {...prevState, plan: select, type: "monthly", pricePlan: priceChosenPlan}
+        })
+      }
+    } catch (e) {
+      return null
     }
   }
 

@@ -1,7 +1,11 @@
+import { useEffect } from "react"
 import icon_thanks from "../assets/images/icon-thank-you.svg"
 import Thank_youStyled from "../StyledComponents/Thank_youStyled"
 
-export default function Thankyou() {
+export default function Thankyou({ handleColorSteps }) {
+  useEffect(() => {
+    handleColorSteps(3)
+  }, [])
 
   return (
     <Thank_youStyled>

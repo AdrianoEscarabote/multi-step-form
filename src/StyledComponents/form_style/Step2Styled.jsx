@@ -12,6 +12,7 @@ const Step2Styled = styled.div`
   align-items: flex-start;
   flex-direction: column;
   position: relative;
+  background-color: ${White};
 
   h2 {
     font-size: 2rem;
@@ -224,12 +225,23 @@ const Step2Styled = styled.div`
     z-index: 100 !Important;
     height: auto;
     border-radius: 0.625rem;
-    background-color: #000;
     position: initial !Important;
-    margin-top: -70px;
+    padding: 2.5rem 2.25rem 3rem 2.25rem;
+    margin-bottom: 10rem;
 
     form {
       position: initial !Important;
+
+      .plans {
+        flex-direction: column;
+
+        label {
+          max-width: 100% !Important;
+          flex-direction: row !Important;
+          height: auto !Important;
+          justify-content: flex-start !Important;
+        }
+      }
 
       .switch__container {
         position: initial !Important;

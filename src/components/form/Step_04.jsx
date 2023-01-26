@@ -20,7 +20,7 @@ export default function Step04({ handleColorSteps }) {
           <div className="plan">
             <div>
               <p>{getInfo.plan} ({getInfo.type})</p>
-              <Link to="/plan">change</Link>
+              <Link to="/plan">Change</Link>
             </div>
             <p>{getInfo.pricePlan}</p>
           </div>
@@ -37,10 +37,15 @@ export default function Step04({ handleColorSteps }) {
         <h1>{getInfo.phone} ::</h1>
         <h1>{getInfo.plan} ::</h1>
         <h1>{getInfo.type} ::</h1>
+        <h1>{getInfo.addOns[0]}</h1>
 
         <span>Total (per month/year)</span>
 
-        <Link to="/contact">Go Back</Link>
+        <div className="link-router">
+          <Link to="/contact">Go Back</Link>
+          <Link to="/thanks">Confirm</Link>
+        </div>  
+
       </Step4Styled> 
   );
 };

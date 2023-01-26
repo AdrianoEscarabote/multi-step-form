@@ -1,6 +1,5 @@
 import { BrowserRouter } from "react-router-dom";
 import Form from "./components/Form";
-import Thankyou from "./components/Thankyou";
 import Article from "./StyledComponents/Article";
 import GlobalStyle from "./StyledComponents/global_style";
 import { InfoProvider } from "./context";
@@ -25,7 +24,7 @@ export default function App() {
       plan: "",
       type: false,
       pricePlan: "",
-      addOns: Array,
+      addOns: []
     }}>
       <GlobalStyle />
       <Article>
@@ -62,7 +61,6 @@ export default function App() {
         <BrowserRouter>
           <Form handleColorSteps={handleColorSteps}/>
         </BrowserRouter>
-        {/* <Thankyou /> */}
       </Article>
     </InfoProvider>
   )

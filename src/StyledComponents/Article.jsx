@@ -89,6 +89,8 @@ const Article = styled.article`
     display: flex;
     flex-direction: column;
     height: auto;
+    margin-bottom: 4rem;
+    background-color: transparent;
 
     .steps {
       display: flex;
