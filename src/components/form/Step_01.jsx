@@ -72,7 +72,7 @@ export default function Step01({ handleColorSteps }) {
 
   const validatePhone = (phone) => {
     return String(phone).match(/^(\+0?1\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{3}$/);
-  } 
+  }; 
 
   useEffect(() => {
     if (effectRan.current === true) { 
@@ -138,13 +138,12 @@ export default function Step01({ handleColorSteps }) {
               setPhone(e.target.value);
             }
           } />
-
-          <div className="link-router">
-            <Link to="/plan" className={getIsFormValid() ? "link" : "link disabled"} onClick={() => handleClick()}>Next Step</Link>
-          </div>
-
         </fieldset>
       </form>
+      
+      <div className="link-router">
+        <Link to="/plan" className={getIsFormValid() ? "link" : "link disabled"} onClick={() => handleClick()}>Next Step</Link>
+      </div>
 
     </Step1Styled>
   );

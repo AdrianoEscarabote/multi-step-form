@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import bg_sidebar from "../assets/images/bg-sidebar-desktop.svg";
-import { LightGray, White } from "../StyledComponents/colors";
+import { bgColor, LightGray, White } from "../StyledComponents/colors";
 import bg_sidebar_mobile from "../assets/images/bg-sidebar-mobile.svg";
 import { PastelBlue } from "../StyledComponents/colors";
 import { LightBlue } from "../StyledComponents/colors";
@@ -84,25 +84,30 @@ const Article = styled.article`
 
   @media (max-width: 45rem) {
     width: 100%;
-    height: 100vh;
-    border-radius: 0rem;
+    padding: 0rem;
+    border-radius: 1rem;
     display: flex;
     flex-direction: column;
-    background-color: ${LightBlue};
+    height: auto;
 
     .steps {
       display: flex;
       align-items: flex-start; 
+      flex-direction: row;
       justify-content: center;
-      padding-top: 1.25rem;
+      padding: 2.25rem 0px 0px 0px;
       border-radius: 0rem;
       background: url(${bg_sidebar_mobile}) no-repeat;
       background-size: 100%;
       width: 100%;
-      height: 11.25rem;
+      height: 13.25rem;
       position: absolute;
       left: 0;
       top: 0;
+
+      .step {
+        display: flex; 
+      }
 
       .info {
         display: none !Important;

@@ -12,6 +12,7 @@ const Step1Styled = styled.div`
   width: 100%;
   height: 100%;
   background-color: ${White};
+  border-radius: 10px !Important; 
   position: relative;
 
   h2 {
@@ -76,35 +77,35 @@ const Step1Styled = styled.div`
           color: ${Coolgray}; 
         }
       }
+    }
+  }
 
-      .link-router {
-        margin-top: 2.5rem;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
+  .link-router {
+    margin-top: 2.5rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 
-        a {
-          text-decoration: none;
-          width: 7.6075rem;
-          border-radius: 0.5rem;
-          height: 3rem;
-          background-color: ${MarineBlue};
-          color: ${White};
-          cursor: pointer;
-          display: grid;
-          place-content: center;
-          position: absolute;
-          bottom: 1rem;
-          right: 0;
-          pointer-events: auto;
-        }
+    a {
+      text-decoration: none;
+      width: 7.6075rem;
+      border-radius: 0.5rem;
+      height: 3rem;
+      background-color: ${MarineBlue};
+      color: ${White};
+      cursor: pointer;
+      display: grid;
+      place-content: center;
+      position: absolute;
+      bottom: 1rem;
+      right: 5rem;
+      pointer-events: auto;
+    }
 
-        .link.disabled {
-          background-color: ${MarineBlue} !Important; 
-          opacity: 0.6;
-          pointer-events: none;
-        }
-      }
+    .link.disabled {
+      background-color: ${MarineBlue} !Important; 
+      opacity: 0.6;
+      pointer-events: none;
     }
   }
 
@@ -120,10 +121,42 @@ const Step1Styled = styled.div`
   }
 
   @media(max-width: 43.75rem) {
-    background-color: white;
-    top: 6.25rem;
+    
+    @media(max-height: 800px) {
+      margin: 80px 0px 220px 0px!Important;
+    } 
+
     border-radius: 0.625rem;
-    background-color: #fff;
+    padding: 2.5rem 2.25rem 3rem 2.25rem;
+    align-items: flex-start;
+    flex-direction: column;
+    position: initial;
+    margin-top: -180px;
+    height: auto;
+    z-index: 100;
+
+    form {
+      position: initial !Important;
+    }
+
+    .link-router {
+      width: 100%;
+      height: 100px;
+      position: absolute;
+      bottom: 0px;
+      left: 0;
+      background-color: ${White} !Important;
+
+      .link {
+        top: 20px;
+        right: 20px;
+      }
+    }
+  }
+
+  @media (max-width: 420px) {
+    padding: 20px;
+
   }
 `
 

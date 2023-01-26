@@ -83,8 +83,9 @@ const globalStyle = createGlobalStyle`
 
   @media (max-width: 45rem) {
     body {
-      padding: 0rem !Important;
-      background-color: ${White};
+      padding: 1rem !Important;
+      background-color: ${bgColor};
+      position: relative !Important;
     }
   }
 `

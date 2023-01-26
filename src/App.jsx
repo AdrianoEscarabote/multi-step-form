@@ -23,7 +23,9 @@ export default function App() {
       email: "",
       phone: "",
       plan: "",
-      type: false
+      type: false,
+      pricePlan: "",
+      addOns: Array,
     }}>
       <GlobalStyle />
       <Article>

@@ -76,42 +76,6 @@ const Step2Styled = styled.div`
           display: none;
         }
       }
-
-      .link-router {
-        margin-top: 2.5rem;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        position: absolute;
-        bottom: -1.5rem;
-        left: ;
-
-        a {
-          text-decoration: none;
-          width: 7.6075rem;
-          border-radius: 0.5rem;
-          height: 3rem;
-          background-color: ${MarineBlue};
-          color: ${White};
-          cursor: pointer;
-          display: grid;
-          place-content: center;
-          font-weight: 700;
-        }
-
-        .back {
-          background-color: transparent;
-          color: ${Coolgray};
-          position: relative;
-          left: -1.875rem; 
-        }
-
-        .link.disabled {
-          background-color: ${MarineBlue} !Important; 
-          opacity: 0.6;
-          cursor: not-allowed;
-        }
-      }
   
       .switch__container {
         position: absolute; 
@@ -191,6 +155,41 @@ const Step2Styled = styled.div`
         transform: translateX(1.375rem);
       }
     }
+    .link-router {
+      margin-top: 2.5rem;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      position: absolute;
+      bottom: -1.5rem;
+      left: ;
+
+      a {
+        text-decoration: none;
+        width: 7.6075rem;
+        border-radius: 0.5rem;
+        height: 3rem;
+        background-color: ${MarineBlue};
+        color: ${White};
+        cursor: pointer;
+        display: grid;
+        place-content: center;
+        font-weight: 700;
+      }
+
+      .back {
+        background-color: transparent;
+        color: ${Coolgray};
+        position: relative;
+        left: -1.875rem; 
+      }
+
+      .link.disabled {
+        background-color: ${MarineBlue} !Important; 
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+    }
   }
 
   .link.disabled {
@@ -222,7 +221,38 @@ const Step2Styled = styled.div`
 
   @media (max-width: 45rem) {
     margin-top: 6.25rem;
-    z-index: 100;
+    z-index: 100 !Important;
+    height: auto;
+    border-radius: 0.625rem;
+    background-color: #000;
+    position: initial !Important;
+    margin-top: -70px;
+
+    form {
+      position: initial !Important;
+
+      .switch__container {
+        position: initial !Important;
+      }
+    }
+
+    .link-router {
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+      width: 100%;
+      background-color: #000;
+      align-items: center;
+      height: 100px;
+
+      .link {
+        margin-right: 20px;
+      }
+
+      .back {
+        margin-left: 20px; 
+      }
+    }
   }
 `
 

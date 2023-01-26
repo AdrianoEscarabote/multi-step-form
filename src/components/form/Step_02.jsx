@@ -13,6 +13,9 @@ export default function Step02({ handleColorSteps }) {
   const [select, setSelect] = useState("");
   const setInfo = useSetInfo();
   const getInfo = useInfo();
+  const [arcadePrice, setArcadePrice] = useState("$9/mo");
+  const [advancedPrice, setAdvancedPrice] = useState("$12/mo");
+  const [pricePro, setPricePro] = useState("$15/mo");
 
   useEffect(() => {
     handleColorSteps(1);
@@ -52,16 +55,16 @@ export default function Step02({ handleColorSteps }) {
     if (effectRan.current === true) {
       if (target) {
         document.querySelector("form").classList.add("plans_yearly")
-        document.querySelector(".price_arcade").innerHTML = "$90/yr"
-        document.querySelector(".price_advanced").innerHTML = "$120/yr"
-        document.querySelector(".price_pro").innerHTML = "$150/yr"
+        setArcadePrice("$90/yr")
+        setAdvancedPrice("$120/yr")
+        setPricePro("$150/yr")
         document.querySelector(".year_plan").classList.add("active_radio")
         document.querySelector(".mon_plan").classList.remove("active_radio")
       } else {
         document.querySelector("form").classList.remove("plans_yearly")
-        document.querySelector(".price_arcade").innerHTML = "$9/mo"
-        document.querySelector(".price_advanced").innerHTML = "$12/mo"
-        document.querySelector(".price_pro").innerHTML = "$15/mo"
+        setArcadePrice("$9/mo")
+        setAdvancedPrice("$12/mo")
+        setPricePro("$15/mo")
         document.querySelector(".year_plan").classList.remove("active_radio")
         document.querySelector(".mon_plan").classList.add("active_radio")
       }
@@ -76,13 +79,24 @@ export default function Step02({ handleColorSteps }) {
   }
 
   const handleClick = () => {
+    const chosenPlan = document.querySelector("label.selected").className
+    let priceChosenPlan = ""
+
+    if (chosenPlan.includes("pro")) {
+      priceChosenPlan = pricePro
+    } else if (chosenPlan.includes("advanced")) {
+      priceChosenPlan = advancedPrice
+    } else {
+      priceChosenPlan = arcadePrice
+    }
+    
     if (target) {
       setInfo(prevState => {
-        return {...prevState, plan: select, type: "yearly"}
+        return {...prevState, plan: select, type: "yearly", pricePlan: priceChosenPlan}
       })
     } else {
       setInfo(prevState => {
-        return {...prevState, plan: select, type: "monthly"}
+        return {...prevState, plan: select, type: "monthly", pricePlan: priceChosenPlan}
       })
     }
   }
@@ -102,7 +116,7 @@ export default function Step02({ handleColorSteps }) {
               <img src={iconArcade} alt="" aria-hidden="true" />
 
               <p>Arcade
-                <span className="price_arcade">$9/mo</span>
+                <span className="price_arcade">{arcadePrice}</span>
                 <span className="yearly">2 months free</span>
               </p>
               <input type="radio" name="plan" id="arcade" onClick={(e) => { 
@@ -114,7 +128,7 @@ export default function Step02({ handleColorSteps }) {
               <img src={iconAdvanced} alt="" aria-hidden="true" />
 
               <p>Advanced
-                <span className="price_advanced">$12/mo</span>
+                <span className="price_advanced">{advancedPrice}</span>
                 <span className="yearly">2 months free</span>
               </p>
               <input type="radio" name="plan" id="advanced" onClick={(e) => {
@@ -126,7 +140,7 @@ export default function Step02({ handleColorSteps }) {
               <img src={iconPro} alt="" aria-hidden="true" />
 
               <p>Pro
-                <span className="price_pro">$15/mo</span>
+                <span className="price_pro">{pricePro}</span>
                 <span className="yearly">2 months free</span>
               </p>
               <input type="radio" name="plan" id="pro" onClick={(e) => {
@@ -143,12 +157,12 @@ export default function Step02({ handleColorSteps }) {
             <label htmlFor="switch-shadow"></label>
             <span className="year_plan">Yearly</span>
           </div>
-
-          <div className="link-router">
-            <Link to="/" onClick={() => handleClick()} className="back">Go Back</Link>
-            <Link to="/contact" className={getIsFormValid() ? "link" : "link disabled"} onClick={() => handleClick()}>Next Step</Link>
-          </div>
         </fieldset>
+
+        <div className="link-router">
+          <Link to="/" onClick={() => handleClick()} className="back">Go Back</Link>
+          <Link to="/contact" className={getIsFormValid() ? "link" : "link disabled"} onClick={() => handleClick()}>Next Step</Link>
+        </div>
 
       </ form>
     </Step2Styled>
