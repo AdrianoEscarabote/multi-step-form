@@ -3,7 +3,7 @@ import { Coolgray, LightGray, Magnolia, MarineBlue, PurplishBlue, White } from "
 
 const Step3Styled = styled.div`
   color: black;
-  padding: 1.25rem 3.125rem;
+  padding: 3.25rem 5.125rem 1.25rem 3.125rem;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -90,7 +90,8 @@ const Step3Styled = styled.div`
         display: flex;
         justify-content: space-between;
         position: absolute;
-        bottom: 0;
+        bottom: -5px;
+        left: -2px;
 
         a {
           text-decoration: none;
@@ -102,15 +103,23 @@ const Step3Styled = styled.div`
           cursor: pointer;
           display: grid;
           place-content: center;
+          font-weight: 700;
         }
-
-        .link.disabled {
-          background-color: ${MarineBlue} !Important; 
-          opacity: 0.6;
-          cursor: not-allowed;
+  
+        .back {
+          background-color: transparent;
+          color: ${Coolgray};
+          position: relative;
+          left: -1.875rem; 
         }
       }
     }
+  }
+
+  .link.disabled {
+    background-color: ${MarineBlue} !Important; 
+    opacity: 0.6;
+    pointer-events: none;
   }
 
   .checked {

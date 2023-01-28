@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import { Coolgray, MarineBlue, Alabaster, LightGray, White } from "../colors";
+import { Coolgray, MarineBlue, Alabaster, LightGray, White, PurplishBlue } from "../colors";
 
 const Step4Styled = styled.div`
-  
   color: #000;
   position: relative;
+  padding: 2.50rem 5.2rem 2.50rem 3.2rem;
 
   h2 {
     font-size: 2rem;
@@ -22,22 +22,23 @@ const Step4Styled = styled.div`
   }
 
   .infos {
-    margin-top: 20px;
+    margin-top: 35px;
     width: 100%;
-    background-color: ${Alabaster};
-
+    background-color: ${Coolgray};
+    border-radius: 10px;
+    padding: 20px;
      
     .plan {
       display: flex;
       justify-content: space-between;
-      padding: 20px;
-      border-radius: 10px;
+      border-bottom: 1px solid ${Coolgray};
+      padding-bottom: 20px;
 
       div {
         p {
           font-weight: 700;
           color: ${MarineBlue};
-          font-size: 20px;
+          font-size: 18px;
         }
         a {
           color: ${Coolgray};
@@ -50,6 +51,33 @@ const Step4Styled = styled.div`
         color: ${MarineBlue};
       }
     }
+
+    .services {
+      padding-top: 40px;
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        width: 100%; 
+        gap: 10px;
+        
+        li {
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+    }
+  }
+
+  .total {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+
+    .result {
+      color: ${PurplishBlue};
+    }
   }
  
   .link-router {
@@ -57,8 +85,9 @@ const Step4Styled = styled.div`
     width: 100%;
     display: flex;
     justify-content: space-between;
-    position: absolute;
-    bottom: 0;
+    bottom: -35px;
+    left: -2px;
+    position: relative;
 
     a {
       text-decoration: none;
@@ -70,6 +99,14 @@ const Step4Styled = styled.div`
       cursor: pointer;
       display: grid;
       place-content: center;
+    }
+
+    .back {
+      background-color: transparent;
+      color: ${Coolgray};
+      position: relative;
+      left: -1.875rem; 
+      font-weight: 700; 
     }
   }
 `

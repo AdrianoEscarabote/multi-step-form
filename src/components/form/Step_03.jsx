@@ -12,9 +12,9 @@ export default function Step03({ handleColorSteps }) {
 
   const effectRan = useRef(false);
   const [checked, setChecked] = useState("");
-  const [target, setTarget] = useState("");
   const setInfo = useSetInfo();
   const getInfo = useInfo();
+
   const [onlinePrice, setOnlinePrice] = useState({
     price: "",
     type: "",
@@ -23,15 +23,25 @@ export default function Step03({ handleColorSteps }) {
     price: "",
     type: "",
   });
+
   const [customizablePrice, setCustomizablePrice] = useState({
     price: "",
     type: "",
   });
+
   const [labelOnline, setLabelOnline] = useState("online");
   const [labelStorage, setLabelStorage] = useState("storage");
   const [labelCustomizable, setLabelCustomizable] = useState("customizable");
 
   useEffect(() => {
+
+    if (getInfo.addOns.length >= 1) {
+      getInfo.addOns.forEach(element => {
+        document.getElementById(`${element.name}`).classList.add("checked");
+        document.getElementById(`${element.name}`).firstChild.checked = "true"
+      })
+    }
+
     if (getInfo.type === "monthly") {
       setOnlinePrice(prevState => {
         return {
@@ -80,31 +90,49 @@ export default function Step03({ handleColorSteps }) {
     };
   }, [])
 
-  const handleClassChange = (ev) => {
-    if (ev === "online" || ev === "online checked") {
-      ev === "online checked" ? setLabelOnline("online") : setLabelOnline("online checked")
-    } 
-    if (ev === "storage" || ev === "storage checked") {
-      ev === "storage checked" ? setLabelStorage("storage") : setLabelStorage("storage checked")
-    }
-    if (ev === "customizable" || ev === "customizable checked") {
-      ev === "customizable checked" ? setLabelCustomizable("customizable") : setLabelCustomizable("customizable checked")
-    }
-  }
+  const [classToRemove, setClassToRemove] = useState("");
 
   useEffect(() => {
     if (effectRan.current === true) {
+      console.log("removendo classe: " + classToRemove)
+      document.querySelector(`.${classToRemove}`).classList.remove("checked") 
+      
+      if (classToRemove === "online") {
+        setLabelOnline(`${classToRemove}`)
+      } else if (classToRemove === "storage") {
+        setLabelStorage(`${classToRemove}`)
+      } else {
+        setLabelCustomizable(`${classToRemove}`)
+      }
     }
     return () => {
       effectRan.current = true
     }
-  }, [checked]);
-  
-  const plansSelected = []
+  }, [classToRemove])
 
-  useEffect(() => {
+  const handleClassChange = (ev) => {
+    setCondition("change")
+    
+    if (ev === "online" || ev === "online checked") {
+      console.log("entrei no online")
+      ev === "online checked" ? setClassToRemove("online") : setLabelOnline("online checked")
+    } 
+    if (ev === "storage" || ev === "storage checked") {
+      console.log("entrei no storage")
+      ev === "storage checked" ? setClassToRemove("storage") : setLabelStorage("storage checked")
+    }
+    if (ev === "customizable" || ev === "customizable checked") {
+      console.log("entrei no customizable")
+      ev === "customizable checked" ? setClassToRemove("customizable") : setLabelCustomizable("customizable checked")  
+    }
+  }
+
+  const plansSelected = [];
+  const formattedPlans = [];
+
+  const handleClick = () => {
     const plans = ["Customizable profile", "Online service", "Larger storage"]
-  
+    
     document.querySelectorAll("label.checked").forEach(element => {
       if (plans.includes(element.id)) {
         plansSelected.push(element.id)
@@ -114,41 +142,46 @@ export default function Step03({ handleColorSteps }) {
     })
   
     if (plansSelected.includes("Customizable profile")) {
-      console.log("Customizable Profile")
+      formattedPlans.push({name: "Customizable profile", price: customizablePrice.price, type: customizablePrice.type})
       setInfo(prevState => {
         return {
           ...prevState,
-          addOns: {price: customizablePrice.price, type: customizablePrice.type}
+          addOns: formattedPlans
         }
       })
     } 
     
     if (plansSelected.includes("Online service")) {
-      console.log("entrei no Online")
+      formattedPlans.push({name: "Online service", price: onlinePrice.price, type: onlinePrice.type})
       setInfo(prevState => {
         return {
           ...prevState,
-          addOns: {price: onlinePrice.price, type: onlinePrice.type}
+          addOns: formattedPlans
         }
       })
     } 
 
     if (plansSelected.includes("Larger storage")) {
-      console.log("entrei no larger")
+      formattedPlans.push({name: "Larger storage", price: largerPrice.price, type: largerPrice.type})
       setInfo(prevState => {
         return {
           ...prevState,
-          addOns: {price: largerPrice.price, type: largerPrice.type}  
+          addOns: formattedPlans  
         }
       })
     }
+  }
 
-    console.log("Planos selecionados: " + plansSelected)
-    setTimeout(() => {
-      console.log(getInfo.addOns)
-    })
-  
-  }, [target])
+  const [validateButtonNext, setValidateButtonNext] = useState(false);
+  const [condition, setCondition] = useState("");
+
+  useEffect(() => {
+    setValidateButtonNext(!document.querySelectorAll("label.checked").length <= 0)
+  }, [condition])
+
+  const getIsFormValid = () => {
+    return validateButtonNext
+  }
 
   return (
     <Step3Styled>
@@ -163,10 +196,8 @@ export default function Step03({ handleColorSteps }) {
 
             <label htmlFor="online_service" className={labelOnline} id="Online service">
 
-              <input type="checkbox" name="online_service" id="online_service" onClick={(e) => {
+              <input type="checkbox" name="online_service" id="online_service" onChange={() => setChecked(true)} onClick={(e) => {
                 handleClassChange(e.currentTarget.parentElement.className)
-              }} onChange={(e) => {
-                setTarget(e.target)
               }}/>
 
               <div className="details">
@@ -179,10 +210,8 @@ export default function Step03({ handleColorSteps }) {
 
             <label className={labelStorage}  htmlFor="larger_storage" id="Larger storage">
 
-              <input type="checkbox" name="larger_storage" id="larger_storage" onClick={(e) => {
+              <input type="checkbox" name="larger_storage" id="larger_storage" onChange={() => setChecked(true)} onClick={(e) => {
                 handleClassChange(e.currentTarget.parentElement.className)
-              }} onChange={(e) => {
-                setTarget(e.target)
               }}/>
 
               <div className="details">
@@ -195,10 +224,8 @@ export default function Step03({ handleColorSteps }) {
 
             <label htmlFor="customizable" className={labelCustomizable} id="Customizable profile">
 
-              <input type="checkbox" name="customizable" id="customizable" onClick={(e) => {
+              <input type="checkbox" name="customizable" id="customizable" onChange={() => setChecked(true)} onClick={(e) => {
                 handleClassChange(e.currentTarget.parentElement.className)
-              }} onChange={(e) => {
-                setTarget(e.target)
               }}/>
 
               <div className="details">
@@ -211,8 +238,8 @@ export default function Step03({ handleColorSteps }) {
           </section>
 
           <div className="link-router">
-            <Link to="/plan">Go Back</Link>
-            <Link to="/finishing"> Next Step </Link>
+            <Link to="/plan" className="back" onClick={() => handleClick()}>Go Back</Link>
+            <Link to="/finishing" onClick={() => handleClick()} className={getIsFormValid() ? "link" : "link disabled"}> Next Step </Link>
           </div>
 
         </fieldset>

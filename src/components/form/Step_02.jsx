@@ -4,9 +4,7 @@ import iconAdvanced from "../../assets/images/icon-advanced.svg";
 import iconPro from "../../assets/images/icon-pro.svg";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { useSetInfo } from "../../context";
-import { useInfo } from "../../context";
-
+import { useSetInfo, useInfo } from "../../context";
 export default function Step02({ handleColorSteps }) { 
 
   const effectRan = useRef(false);
@@ -83,9 +81,9 @@ export default function Step02({ handleColorSteps }) {
       const chosenPlan = document.querySelector("label.selected").className
       let priceChosenPlan = ""
   
-      if (chosenPlan.includes("pro")) {
+      if (chosenPlan.includes("Pro")) {
         priceChosenPlan = pricePro
-      } else if (chosenPlan.includes("advanced")) {
+      } else if (chosenPlan.includes("Advanced")) {
         priceChosenPlan = advancedPrice
       } else {
         priceChosenPlan = arcadePrice
@@ -116,7 +114,7 @@ export default function Step02({ handleColorSteps }) {
 
           <section className="plans">
 
-            <label htmlFor="arcade" className="arcade">
+            <label htmlFor="arcade" className="Arcade">
               <img src={iconArcade} alt="" aria-hidden="true" />
 
               <p>Arcade
@@ -128,7 +126,7 @@ export default function Step02({ handleColorSteps }) {
               }}/>
             </label>
 
-            <label htmlFor="advanced" className="advanced">
+            <label htmlFor="advanced" className="Advanced">
               <img src={iconAdvanced} alt="" aria-hidden="true" />
 
               <p>Advanced
@@ -140,7 +138,7 @@ export default function Step02({ handleColorSteps }) {
               } }/>
             </label>
 
-            <label htmlFor="pro" className="pro">
+            <label htmlFor="pro" className="Pro">
               <img src={iconPro} alt="" aria-hidden="true" />
 
               <p>Pro

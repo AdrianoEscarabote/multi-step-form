@@ -46,7 +46,6 @@ export default function Step01({ handleColorSteps }) {
         document.querySelector("#name").classList.add("error_input");
         document.querySelector(".message_name").classList.add("error_message");
       };
-      console.log("i fire once");
     };
     return () => {
       effectRan.current = true;

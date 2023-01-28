@@ -163,7 +163,6 @@ const Step2Styled = styled.div`
       justify-content: space-between;
       position: absolute;
       bottom: -1.5rem;
-      left: ;
 
       a {
         text-decoration: none;
@@ -183,12 +182,6 @@ const Step2Styled = styled.div`
         color: ${Coolgray};
         position: relative;
         left: -1.875rem; 
-      }
-
-      .link.disabled {
-        background-color: ${MarineBlue} !Important; 
-        opacity: 0.6;
-        cursor: not-allowed;
       }
     }
   }

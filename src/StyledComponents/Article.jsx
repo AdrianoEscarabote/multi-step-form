@@ -16,7 +16,6 @@ const Article = styled.article`
   display: grid;
   grid-template-columns: 17.125rem auto;
   gap: 3.125rem;
-  margin-bottom: 0.375rem;
   
   .steps {
     background: url(${bg_sidebar}) no-repeat;

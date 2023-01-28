@@ -3,18 +3,23 @@ import Form from "./components/Form";
 import Article from "./StyledComponents/Article";
 import GlobalStyle from "./StyledComponents/global_style";
 import { InfoProvider } from "./context";
+import { useEffect, useState } from "react";
 
 export default function App() {
 
+  const [numElement, setNumElement] = useState(0);
+  
   const handleColorSteps = (num_param) => {
-    for(let i = 1; i <= 4; i++) {
-      document.querySelectorAll(`.number-step`).forEach(element => {
-        element.classList.remove("active")
-      })
-
-      document.querySelectorAll(".number-step")[num_param].classList.add("active")
-    } 
+    setNumElement(num_param);
   };
+
+  useEffect(() => {
+    document.querySelectorAll(`.number-step`).forEach(element => {
+      element.classList.remove("active");
+    });
+
+    document.querySelectorAll(".number-step")[numElement].classList.add("active");
+  }, [numElement]);
 
   return (
     <InfoProvider value={{
@@ -22,11 +27,12 @@ export default function App() {
       email: "",
       phone: "",
       plan: "",
-      type: false,
+      type: "",
       pricePlan: "",
-      addOns: []
+      addOns: "",
     }}>
       <GlobalStyle />
+      <h1 className="sr-only">Welcome to the multi step form</h1>
       <Article>
         <section className="steps">
           <div className="step">
@@ -63,5 +69,5 @@ export default function App() {
         </BrowserRouter>
       </Article>
     </InfoProvider>
-  )
-}
+  );
+};

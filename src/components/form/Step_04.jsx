@@ -10,6 +10,19 @@ export default function Step04({ handleColorSteps }) {
   }, []);
   
   const getInfo = useInfo();
+
+  useEffect(() => {
+    console.log(getInfo.addOns);
+  }, []);
+
+  const calcTotal = () => {
+    let num = 0;
+    getInfo.addOns.forEach((element) => {
+      
+      return num += Number(element.price);
+    });
+    return num + Number(String(getInfo.pricePlan).match("[0-9]+"));
+  };
   
   return (
       <Step4Styled>
@@ -25,24 +38,32 @@ export default function Step04({ handleColorSteps }) {
             <p>{getInfo.pricePlan}</p>
           </div>
           <div className="services">
-
-          </div>
-          <div className="total">
-
+          <ul>
+            {
+              getInfo.addOns.map((element, index) => {
+                return (
+                  <li key={index}>
+                    <h3>{element.name}</h3>
+                    <h3>+${element.price}/{element.type}</h3>
+                  </li>
+                )
+              })
+            }
+          </ul>
           </div>
         </section>
 
-        <h1>{getInfo.name} ::</h1>
+        <div className="total">            
+          <span>Total (per {getInfo.type === "monthly" ? "month" : "year" })</span>
+          <p className="result">${calcTotal()}/{getInfo.type === "yearly" ? "yr" : "mo"}</p>
+        </div>
+        {/* <h1>{getInfo.name} ::</h1>
         <h1>{getInfo.email} ::</h1>
-        <h1>{getInfo.phone} ::</h1>
-        <h1>{getInfo.plan} ::</h1>
-        <h1>{getInfo.type} ::</h1>
-        <h1>{getInfo.addOns[0]}</h1>
+        <h1>{getInfo.phone} ::</h1> */}
 
-        <span>Total (per month/year)</span>
 
         <div className="link-router">
-          <Link to="/contact">Go Back</Link>
+          <Link to="/contact" className="back">Go Back</Link>
           <Link to="/thanks">Confirm</Link>
         </div>  
 
