@@ -4,7 +4,7 @@ import { Coolgray, MarineBlue, Alabaster, LightGray, White, PurplishBlue } from 
 const Step4Styled = styled.div`
   color: #000;
   position: relative;
-  padding: 2.50rem 5.2rem 2.50rem 3.2rem;
+  padding: 2.5rem 5.2rem 2.5rem 3.2rem;
 
   h2 {
     font-size: 2rem;
@@ -22,27 +22,27 @@ const Step4Styled = styled.div`
   }
 
   .infos {
-    margin-top: 35px;
+    margin-top: 2.1875rem;
     width: 100%;
     background-color: ${Coolgray};
-    border-radius: 10px;
-    padding: 20px;
+    border-radius: 0.625rem;
+    padding: 1.25rem;
      
     .plan {
       display: flex;
       justify-content: space-between;
-      border-bottom: 1px solid ${Coolgray};
-      padding-bottom: 20px;
+      border-bottom: 0.0625rem solid ${Coolgray};
+      padding-bottom: 1.25rem;
 
       div {
         p {
           font-weight: 700;
           color: ${MarineBlue};
-          font-size: 18px;
+          font-size: 1.125rem;
         }
         a {
           color: ${Coolgray};
-          font-size: 15px;
+          font-size: 0.9375rem;
         }
       }
 
@@ -53,13 +53,13 @@ const Step4Styled = styled.div`
     }
 
     .services {
-      padding-top: 40px;
+      padding-top: 2.5rem;
 
       ul {
         display: flex;
         flex-direction: column;
         width: 100%; 
-        gap: 10px;
+        gap: 0.625rem;
         
         li {
           display: flex;
@@ -73,7 +73,7 @@ const Step4Styled = styled.div`
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    padding: 1.25rem;
 
     .result {
       color: ${PurplishBlue};
@@ -85,8 +85,8 @@ const Step4Styled = styled.div`
     width: 100%;
     display: flex;
     justify-content: space-between;
-    bottom: -35px;
-    left: -2px;
+    bottom: -2.1875rem;
+    left: -0.125rem;
     position: relative;
 
     a {
@@ -107,6 +107,27 @@ const Step4Styled = styled.div`
       position: relative;
       left: -1.875rem; 
       font-weight: 700; 
+    }
+  }
+
+  @media (max-width: 45rem) {
+    margin-top: 6.25rem;
+    z-index: 100 !Important;
+    height: auto;
+    border-radius: 0.625rem;
+    position: initial !Important;
+    padding: 2.5rem 2.25rem 3rem 2.25rem;
+    margin-bottom: 3rem; 
+    background-color: ${White};
+
+    .infos {
+      position: initial !important;
+    }
+
+    .link-router {
+      position: absolute;
+      background-color: ${White};
+      padding: 1.25rem;
     }
   }
 `

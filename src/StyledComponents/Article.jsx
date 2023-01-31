@@ -16,6 +16,7 @@ const Article = styled.article`
   display: grid;
   grid-template-columns: 17.125rem auto;
   gap: 3.125rem;
+  box-shadow: 0rem 1.5625rem 2.5rem -1.25rem rgba(0, 0, 0, 0.094);
   
   .steps {
     background: url(${bg_sidebar}) no-repeat;
@@ -82,6 +83,7 @@ const Article = styled.article`
   }
 
   @media (max-width: 45rem) {
+    box-shadow: unset !Important; 
     width: 100%;
     padding: 0rem;
     border-radius: 1rem;

@@ -90,8 +90,8 @@ const Step3Styled = styled.div`
         display: flex;
         justify-content: space-between;
         position: absolute;
-        bottom: -5px;
-        left: -2px;
+        bottom: -0.3125rem;
+        left: -0.125rem;
 
         a {
           text-decoration: none;
@@ -124,6 +124,34 @@ const Step3Styled = styled.div`
 
   .checked {
     border: 0.0625rem solid ${PurplishBlue} !Important;
+  }
+
+  @media (max-width: 45rem) {
+    margin-top: 6.25rem;
+    z-index: 100 !Important;
+    height: auto;
+    border-radius: 0.625rem;
+    position: initial !Important;
+    padding: 2.5rem 2.25rem 3rem 2.25rem;
+    margin-bottom: 3rem; 
+    background-color: ${White};
+
+    form {
+      position: initial !Important;
+
+      .details {
+        padding-right: 2.5rem;
+      }
+    }
+
+    .link-router {
+      background-color: ${White};
+      padding: 1.25rem;
+    }
+  }
+
+  @media (max-width: 26.25rem) {
+    padding: 1.25rem;
   }
 `
 

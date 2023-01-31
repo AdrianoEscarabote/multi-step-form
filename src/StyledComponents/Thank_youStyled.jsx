@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { MarineBlue } from "./colors";
+import { MarineBlue, White } from "./colors";
 
 const Thank_youStyled = styled.div`
   display: flex;
@@ -7,25 +7,42 @@ const Thank_youStyled = styled.div`
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  gap: 14px;
+  gap: 0.875rem;
   
   img {
-    margin-right: 35px;
+    margin-right: 2.1875rem;
   }
 
   h2 {
-    font-size: 32px;
-    margin-right: 40px;
-    padding-top: 10px;
+    font-size: 2rem;
+    margin-right: 2.5rem;
+    padding-top: 0.625rem;
     color: ${MarineBlue};
   }
 
   p {
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 500;
-    max-width: 460px;
-    margin-right: 50px;
+    max-width: 28.75rem;
+    margin-right: 3.125rem;
     color: #797979;
+  }
+
+  @media (max-width: 720px) {
+    background-color: ${White};
+    padding: 1.25rem;
+    border-radius: 0.625rem;
+    z-index: 100;
+    position: fixed;
+    top: 7.1875rem;
+    left: 0.625rem;
+    right: 0.625rem;
+
+    img,
+    h2,
+    p {
+      margin-right: 0rem;
+    }
   }
 `
 

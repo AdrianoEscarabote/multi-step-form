@@ -12,7 +12,7 @@ const Step1Styled = styled.div`
   width: 100%;
   height: 100%;
   background-color: ${White};
-  border-radius: 10px !Important; 
+  border-radius: 0.625rem !Important; 
   position: relative;
 
   h2 {
@@ -121,24 +121,13 @@ const Step1Styled = styled.div`
   }
 
   @media(max-width: 43.75rem) {
-    
-    @media(max-height: 800px) {
-      margin-top: 0px !Important;
-    } 
-
-    @media(max-height: 700px) {
-      margin-top: 70px !Important;
-    }
-
-    border-radius: 0.625rem;
-    padding: 2.5rem 2.25rem 3rem 2.25rem;
-    align-items: flex-start;
-    flex-direction: column;
-    position: initial;
-    margin-top: -180px;
+    margin-top: 6.25rem;
+    z-index: 100 !Important;
     height: auto;
-    z-index: 100;
-    margin-bottom: 2.5rem;
+    border-radius: 0.625rem;
+    position: initial !Important;
+    padding: 2.5rem 2.25rem 3rem 2.25rem;
+    margin-bottom: 3rem; 
 
     form {
       position: initial !Important;
@@ -146,22 +135,21 @@ const Step1Styled = styled.div`
 
     .link-router {
       width: 100%;
-      height: 100px;
+      height: 6.25rem;
       position: absolute;
-      bottom: 0px;
+      bottom: 0rem;
       left: 0;
       background-color: ${White} !Important;
 
       .link {
-        top: 20px;
-        right: 20px;
+        top: 1.25rem;
+        right: 1.25rem;
       }
     }
   }
 
-  @media (max-width: 420px) {
-    padding: 20px;
-
+  @media (max-width: 26.25rem) {
+    padding: 1.25rem;
   }
 `
 

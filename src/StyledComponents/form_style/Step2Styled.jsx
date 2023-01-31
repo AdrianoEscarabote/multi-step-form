@@ -220,7 +220,15 @@ const Step2Styled = styled.div`
     border-radius: 0.625rem;
     position: initial !Important;
     padding: 2.5rem 2.25rem 3rem 2.25rem;
-    margin-bottom: 10rem;
+    margin-bottom: 3rem; 
+
+    .plans_yearly {
+      .plans {
+        label {
+          height: 6.8125rem !Important;
+        }
+      }
+    }
 
     form {
       position: initial !Important;
@@ -233,31 +241,37 @@ const Step2Styled = styled.div`
           flex-direction: row !Important;
           height: auto !Important;
           justify-content: flex-start !Important;
+          gap: 12px !important;
         }
       }
 
       .switch__container {
+        margin-top: 0.625rem;
         position: initial !Important;
       }
     }
 
     .link-router {
       position: absolute;
-      bottom: 0px;
-      left: 0px;
+      bottom: 0rem;
+      left: 0rem;
       width: 100%;
-      background-color: #000;
+      background-color: #fff;
       align-items: center;
-      height: 100px;
+      height: 6.25rem;
 
       .link {
-        margin-right: 20px;
+        margin-right: 1.25rem;
       }
 
       .back {
-        margin-left: 20px; 
+        margin-left: 1.25rem; 
       }
     }
+  }
+
+  @media (max-width: 26.25rem) {
+    padding: 1.25rem;
   }
 `
 
