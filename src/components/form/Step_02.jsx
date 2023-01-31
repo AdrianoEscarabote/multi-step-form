@@ -114,7 +114,7 @@ export default function Step02({ handleColorSteps }) {
 
           <section className="plans">
 
-            <label htmlFor="arcade" className="Arcade">
+            <label htmlFor="arcade" className="Arcade" aria-label="choose arcade plan">
               <img src={iconArcade} alt="" aria-hidden="true" />
 
               <p>Arcade
@@ -126,7 +126,7 @@ export default function Step02({ handleColorSteps }) {
               }}/>
             </label>
 
-            <label htmlFor="advanced" className="Advanced">
+            <label htmlFor="advanced" className="Advanced" aria-label="choose the advanced plan">
               <img src={iconAdvanced} alt="" aria-hidden="true" />
 
               <p>Advanced
@@ -138,7 +138,7 @@ export default function Step02({ handleColorSteps }) {
               } }/>
             </label>
 
-            <label htmlFor="pro" className="Pro">
+            <label htmlFor="pro" className="Pro" aria-label="choose the pro plan">
               <img src={iconPro} alt="" aria-hidden="true" />
 
               <p>Pro
@@ -156,14 +156,14 @@ export default function Step02({ handleColorSteps }) {
             <input checked={target} id="switch-shadow" className="switch switch--shadow" type="checkbox" onChange={(e) => {
               setTarget(e.target.checked)
             }} />
-            <label htmlFor="switch-shadow"></label>
+            <label htmlFor="switch-shadow" aria-label="switch between monthly and annual payment"></label>
             <span className="year_plan">Yearly</span>
           </div>
         </fieldset>
 
         <div className="link-router">
-          <Link to="/" onClick={() => handleClick()} className="back">Go Back</Link>
-          <Link to="/contact" className={getIsFormValid() ? "link" : "link disabled"} onClick={() => handleClick()}>Next Step</Link>
+          <Link to="/" aria-label="go back to the previous step" onClick={() => handleClick()} className="back">Go Back</Link>
+          <Link to="/contact" aria-label={getIsFormValid() ? "go to the other section of the form!" : "" } aria-disabled={getIsFormValid() ? "false" : "true"} className={getIsFormValid() ? "link" : "link disabled"} onClick={() => handleClick()}>Next Step</Link>
         </div>
 
       </ form>

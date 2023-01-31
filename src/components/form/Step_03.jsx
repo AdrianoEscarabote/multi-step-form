@@ -11,7 +11,6 @@ export default function Step03({ handleColorSteps }) {
   }, []);
 
   const effectRan = useRef(false);
-  const [checked, setChecked] = useState("");
   const setInfo = useSetInfo();
   const getInfo = useInfo();
 
@@ -91,93 +90,83 @@ export default function Step03({ handleColorSteps }) {
   }, [])
 
   const [classToRemove, setClassToRemove] = useState("");
+  const [changeClassLabel, setChangeClassLabel] = useState("");
 
-  useEffect(() => {
-    if (effectRan.current === true) {
-      console.log("removendo classe: " + classToRemove)
-      document.querySelector(`.${classToRemove}`).classList.remove("checked") 
-      
-      if (classToRemove === "online") {
-        setLabelOnline(`${classToRemove}`)
-      } else if (classToRemove === "storage") {
-        setLabelStorage(`${classToRemove}`)
-      } else {
-        setLabelCustomizable(`${classToRemove}`)
-      }
-    }
-    return () => {
-      effectRan.current = true
-    }
-  }, [classToRemove])
 
-  const handleClassChange = (ev) => {
-    setCondition("change")
-    
-    if (ev === "online" || ev === "online checked") {
-      console.log("entrei no online")
-      ev === "online checked" ? setClassToRemove("online") : setLabelOnline("online checked")
-    } 
-    if (ev === "storage" || ev === "storage checked") {
-      console.log("entrei no storage")
-      ev === "storage checked" ? setClassToRemove("storage") : setLabelStorage("storage checked")
-    }
-    if (ev === "customizable" || ev === "customizable checked") {
-      console.log("entrei no customizable")
-      ev === "customizable checked" ? setClassToRemove("customizable") : setLabelCustomizable("customizable checked")  
-    }
-  }
+  // usar mais estados!
+
+  
+
+
+
 
   const plansSelected = [];
   const formattedPlans = [];
 
-  const handleClick = () => {
+  const [condition, setCondition] = useState("");
+  const [getId, setGetId] = useState("");
+
+ /*  useEffect(() => {
+    const getIds = document.querySelectorAll("label.checked").forEach(element => element.id)
+    handleClick([...getIds])
+  }, [getId]) */
+
+  const handleClick = (elementId) => {
+
     const plans = ["Customizable profile", "Online service", "Larger storage"]
     
     document.querySelectorAll("label.checked").forEach(element => {
       if (plans.includes(element.id)) {
-        plansSelected.push(element.id)
-      } else {
-        return null
-      }
-    })
-  
-    if (plansSelected.includes("Customizable profile")) {
-      formattedPlans.push({name: "Customizable profile", price: customizablePrice.price, type: customizablePrice.type})
-      setInfo(prevState => {
-        return {
-          ...prevState,
-          addOns: formattedPlans
-        }
-      })
-    } 
-    
-    if (plansSelected.includes("Online service")) {
-      formattedPlans.push({name: "Online service", price: onlinePrice.price, type: onlinePrice.type})
-      setInfo(prevState => {
-        return {
-          ...prevState,
-          addOns: formattedPlans
-        }
-      })
-    } 
 
-    if (plansSelected.includes("Larger storage")) {
-      formattedPlans.push({name: "Larger storage", price: largerPrice.price, type: largerPrice.type})
+      plansSelected.push(element.id)
+
+      if (plansSelected.includes("Customizable profile")) {
+        formattedPlans.push({name: "Customizable profile", price: customizablePrice.price, type: customizablePrice.type})
+        setInfo(prevState => {
+          return {
+            ...prevState,
+            addOns: formattedPlans
+          }
+        })
+      } 
+      
+      if (plansSelected.includes("Online service")) {
+        formattedPlans.push({name: "Online service", price: onlinePrice.price, type: onlinePrice.type})
+        setInfo(prevState => {
+          return {
+            ...prevState,
+            addOns: formattedPlans
+          }
+        })
+      } 
+
+      if (plansSelected.includes("Larger storage")) {
+        formattedPlans.push({name: "Larger storage", price: largerPrice.price, type: largerPrice.type})
+        setInfo(prevState => {
+          return {
+            ...prevState,
+            addOns: formattedPlans  
+          }
+        })
+      }
+     
+      /* alert("entrei no certo que você queria!")
+      formattedPlans = []
       setInfo(prevState => {
         return {
           ...prevState,
-          addOns: formattedPlans  
+          addOns: formattedPlans
         }
-      })
-    }
+      }) */
+      } 
+    })
   }
 
   const [validateButtonNext, setValidateButtonNext] = useState(false);
-  const [condition, setCondition] = useState("");
 
   useEffect(() => {
     setValidateButtonNext(!document.querySelectorAll("label.checked").length <= 0)
-  }, [condition])
+  }, [condition]) 
 
   const getIsFormValid = () => {
     return validateButtonNext
@@ -196,8 +185,8 @@ export default function Step03({ handleColorSteps }) {
 
             <label htmlFor="online_service" className={labelOnline} id="Online service">
 
-              <input type="checkbox" name="online_service" id="online_service" onChange={() => setChecked(true)} onClick={(e) => {
-                handleClassChange(e.currentTarget.parentElement.className)
+              <input type="checkbox" name="online_service" id="online_service" onClick={(e) => {
+                removeClass(e.currentTarget.parentElement.className)
               }}/>
 
               <div className="details">
@@ -210,8 +199,8 @@ export default function Step03({ handleColorSteps }) {
 
             <label className={labelStorage}  htmlFor="larger_storage" id="Larger storage">
 
-              <input type="checkbox" name="larger_storage" id="larger_storage" onChange={() => setChecked(true)} onClick={(e) => {
-                handleClassChange(e.currentTarget.parentElement.className)
+              <input type="checkbox" name="larger_storage" id="larger_storage" onClick={(e) => {
+                removeClass(e.currentTarget.parentElement.className)
               }}/>
 
               <div className="details">
@@ -224,8 +213,8 @@ export default function Step03({ handleColorSteps }) {
 
             <label htmlFor="customizable" className={labelCustomizable} id="Customizable profile">
 
-              <input type="checkbox" name="customizable" id="customizable" onChange={() => setChecked(true)} onClick={(e) => {
-                handleClassChange(e.currentTarget.parentElement.className)
+              <input type="checkbox" name="customizable" id="customizable" onClick={(e) => {
+                removeClass(e.currentTarget.parentElement.className)
               }}/>
 
               <div className="details">

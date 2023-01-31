@@ -141,7 +141,7 @@ export default function Step01({ handleColorSteps }) {
       </form>
       
       <div className="link-router">
-        <Link to="/plan" className={getIsFormValid() ? "link" : "link disabled"} onClick={() => handleClick()}>Next Step</Link>
+        <Link to="/plan" aria-disabled={getIsFormValid() ? "false" : "true"} aria-label={getIsFormValid() ? "go to the other section of the form!" : ""}  className={getIsFormValid() ? "link" : "link disabled"} onClick={() => handleClick()}>Next Step</Link>
       </div>
 
     </Step1Styled>
