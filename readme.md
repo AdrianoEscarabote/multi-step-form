@@ -1,6 +1,4 @@
-- Active webpage [Click here to see webpage]()
-
-# GIF
+- Active app [click here](https://multi-step-form-adrianoescarabote.vercel.app/)
 
 
 
@@ -41,7 +39,18 @@ Users should be able to:
 
 ### Continued development
 
+Multi-step form built with React and Styled Components!
 
+This was a very challenging project, I dealt with a lot of bugs during development and also managed to learn a lot! I'm very happy with the result, I managed to practice a lot of new things, including the use of Hooks. One of the hooks that helped me the most during development was (useEffect), it was perfect for dealing with the side effect and it was also very important for passing form data through components using the Context API.
+
+I had never used react-router before and this was my first time, I took the opportunity to add a 404 error page. A tool that helped me a lot to keep my application performing well, in addition to being able to monitor the accessibility and SEO of the my project, all this with a score from 0 to 100! Here are the notes according to the tool:
+
+- Performance: 87/100
+- Accessibility: 100/100
+- Best practices: 100/100
+- SEO: 92/100
+
+I'm really excited to keep evolving! 🚀
 
 ## Author
 
