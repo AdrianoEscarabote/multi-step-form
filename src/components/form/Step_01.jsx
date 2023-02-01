@@ -13,8 +13,8 @@ export default function Step01({ handleColorSteps }) {
       setName(getInfo.name)
       setEmail(getInfo.email)
       setPhone(getInfo.phone)
-    }
-  }, [])
+    };
+  }, []);
 
   const handleClick = () => {
     setInfo(prevState => {
@@ -24,8 +24,8 @@ export default function Step01({ handleColorSteps }) {
         email,
         phone,
       }
-    })
-  }
+    });
+  };
 
   const effectRan = useRef(false);
   
@@ -70,8 +70,8 @@ export default function Step01({ handleColorSteps }) {
   }, [phone]);
 
   const validatePhone = (phone) => {
-    return String(phone).match(/^(\+0?1\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{3}$/);
-  }; 
+    return String(phone).match(/\s*(?:\+?(\d{1,3}))?[\W\D\s]^|()*(\d[\W\D\s]*?\d[\D\W\s]*?\d)[\W\D\s]*(\d[\W\D\s]*?\d[\D\W\s]*?\d)[\W\D\s]*(\d[\W\D\s]*?\d[\D\W\s]*?\d[\W\D\s]*?\d)(?: *x(\d+))?\s*$/);
+  };
 
   useEffect(() => {
     if (effectRan.current === true) { 
@@ -132,18 +132,18 @@ export default function Step01({ handleColorSteps }) {
             <span className="message_phone">This field is required</span>
           </div>
 
-          <input value={phone} type="text" name="phone" id="phone" placeholder="e.g. +1 234 567 890" onChange={
+          <input value={phone.replace(/[^0-9.\b(\s)\b\+()-]/, "").replace(/(\..*?)\..*/g)} type="text" name="phone" id="phone" placeholder="e.g. +1 234 567 890" onChange={
             (e) => {
               setPhone(e.target.value);
             }
           } />
+
         </fieldset>
       </form>
       
       <div className="link-router">
         <Link to="/plan" aria-disabled={getIsFormValid() ? "false" : "true"} aria-label={getIsFormValid() ? "go to the other section of the form!" : ""}  className={getIsFormValid() ? "link" : "link disabled"} onClick={() => handleClick()}>Next Step</Link>
-      </div>
-
+      </div> 
     </Step1Styled>
   );
 };

@@ -1,8 +1,7 @@
 import styled from "styled-components";
-import { MarineBlue, StrawberryRed } from "../colors";
+import { bgButtonHover, MarineBlue, PurplishBlue, StrawberryRed } from "../colors";
 import { Coolgray } from "../colors";
 import { White } from "../colors";
-import { Magnolia } from "../colors";
 
 const Step1Styled = styled.div`
   display: flex;
@@ -14,6 +13,7 @@ const Step1Styled = styled.div`
   background-color: ${White};
   border-radius: 0.625rem !Important; 
   position: relative;
+  animation: leftAnimation 0.5s ease-in-out;
 
   h2 {
     font-size: 2rem;
@@ -47,14 +47,20 @@ const Step1Styled = styled.div`
       .label_span {
         display: flex;
         justify-content: space-between;
-        font-weight: 400;
-        font-size: 0.875rem;
-        line-height: 1rem;
-        color: ${MarineBlue};
+
+        label {
+          font-weight: 400;
+          font-size: 0.875rem;
+          line-height: 1rem;
+          color: ${MarineBlue};
+        }
   
         span {
           display: none; 
-          color: ${Magnolia}; 
+          color: ${StrawberryRed}; 
+          font-weight: 700;
+          font-size: 14px;
+          line-height: 16px;
         }
       }
     
@@ -72,9 +78,16 @@ const Step1Styled = styled.div`
         display: flex;
         align-items: center;
         color: ${MarineBlue};
+        cursor: pointer;
+
         &::-webkit-input-placeholder,
         &::-moz-placeholder { 
           color: ${Coolgray}; 
+        }
+
+        &:hover {
+          outline: 0.0625rem solid ${PurplishBlue} !Important;
+          border: 0.0625rem solid ${PurplishBlue} !Important;
         }
       }
     }
@@ -100,6 +113,10 @@ const Step1Styled = styled.div`
       bottom: 1rem;
       right: 5rem;
       pointer-events: auto;
+
+      &:hover {
+        background-color: ${bgButtonHover};
+      }
     }
 
     .link.disabled {

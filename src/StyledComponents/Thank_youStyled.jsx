@@ -8,21 +8,23 @@ const Thank_youStyled = styled.div`
   flex-direction: column;
   text-align: center;
   gap: 0.875rem;
+  animation: leftAnimation 0.6s ease-in-out;
   
   img {
     margin-right: 2.1875rem;
   }
 
   h2 {
+    font-weight: 700;
     font-size: 2rem;
-    margin-right: 2.5rem;
-    padding-top: 0.625rem;
+    line-height: 2.3125rem;
     color: ${MarineBlue};
   }
 
   p {
+    font-weight: 400;
     font-size: 1rem;
-    font-weight: 500;
+    line-height: 1.5625rem;
     max-width: 28.75rem;
     margin-right: 3.125rem;
     color: #797979;

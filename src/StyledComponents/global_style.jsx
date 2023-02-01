@@ -88,6 +88,43 @@ const globalStyle = createGlobalStyle`
       position: relative !Important;
     }
   }
+
+  main {
+    animation: mainAnimation 1s ease-in-out;
+  }
+
+  @media(min-width: 43.75rem) {
+
+    @keyframes mainAnimation {
+      from {
+        opacity: 0;
+        transform: translateY(-10%);
+      } to {
+        opacity: 1;
+        transform: translateY(0%);
+      }
+    }
+
+    @keyframes leftAnimation {
+      from {
+        transform: translateX(-4%);
+        opacity: 0;
+      } to {
+        transform: translateX(0%);
+        opacity: 1;
+      }
+    }
+  
+    @keyframes rightAnimation {
+      from {
+        transform: translateX(3%);
+        opacity: 0;
+      } to {
+        opacity: 1;
+        transform: translateX(0%);
+      }
+    }
+  }
 `
 
 export default globalStyle;

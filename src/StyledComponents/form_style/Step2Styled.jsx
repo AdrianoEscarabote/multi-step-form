@@ -1,11 +1,10 @@
 import styled from "styled-components";
-import { Alabaster, LightBlue, LightGray, MarineBlue, PurplishBlue, White } from "../colors";
+import { Alabaster, bgButtonHover, Magnolia, MarineBlue, PurplishBlue, White } from "../colors";
 import { Coolgray } from "../colors";
 
 const Step2Styled = styled.div`
   color: #000;
   padding: 2.5rem 5.3125rem 2.5rem 3.125rem;
-  position: relative;
   height: 100%;
   width: 100%;
   display: flex;
@@ -13,6 +12,7 @@ const Step2Styled = styled.div`
   flex-direction: column;
   position: relative;
   background-color: ${White};
+  animation: rightAnimation 0.5s ease-in-out;
 
   h2 {
     font-size: 2rem;
@@ -57,7 +57,6 @@ const Step2Styled = styled.div`
           border: 0.0625rem solid #DBDBDD;
           border-radius: 0.625rem;
 
-
           &:hover {
             border: 0.0625rem solid #524E98;
           }
@@ -70,6 +69,18 @@ const Step2Styled = styled.div`
           p {
             display: flex;
             flex-direction: column;
+            gap: 6px;
+            font-weight: 500;
+            font-size: 1rem;
+            line-height: 1.125rem;
+            color: ${MarineBlue};
+
+            span {
+              font-weight: 400;
+              font-size: 14px;
+              color: ${Coolgray};
+              line-height: 16px;
+            }
           }
     
         }
@@ -92,15 +103,15 @@ const Step2Styled = styled.div`
   
         span.active_radio {
           color: ${MarineBlue};
-          font-weight: 600;
-          font-size: 0.9455rem;
-          line-height: 0.9375rem;
+          font-weight: 700;
+          font-size: 0.875rem;
+          line-height: 1rem;
         }
         span {
           color: ${Coolgray};
-          font-weight: 600;
-          font-size: 0.9455rem;
-          line-height: 0.9375rem;
+          font-weight: 700;
+          font-size: 0.875rem;
+          line-height: 1rem;
         }
       }
   
@@ -136,21 +147,18 @@ const Step2Styled = styled.div`
       }
       .switch--shadow + label:before {
         right: 0.0625rem;
-        background-color: #CFD8EF;
+        background-color: ${MarineBlue};
         border-radius: 3.75rem;
         transition: all 0.4s;
       }
       .switch--shadow + label:after {
-        height: 1.125rem;
-        width: 1.125rem;
-        top: 0.2125rem;
-        left: 0.1875rem;
+        height: 1.025rem;
+        width: 1.025rem;
+        top: 0.2725rem;
+        left: 0.2275rem;
         background-color: #fff;
         border-radius: 50%;
         transition: all 0.4s;
-      }
-      .switch--shadow:checked + label:before {
-        background-color: #7AEADF;
       }
       .switch--shadow:checked + label:after {
         transform: translateX(1.375rem);
@@ -177,11 +185,24 @@ const Step2Styled = styled.div`
         font-weight: 700;
       }
 
+      .link {
+        &:hover {
+          background-color: ${bgButtonHover} !Important;          
+        }
+      }
+
       .back {
         background-color: transparent;
         color: ${Coolgray};
         position: relative;
-        left: -1.875rem; 
+        left: -1.875rem;
+        font-weight: 500;
+        font-size: 1rem;
+        line-height: 1.125rem; 
+        
+        &:hover {
+          color: ${MarineBlue} !important;
+        }
       }
     }
   }
@@ -193,6 +214,7 @@ const Step2Styled = styled.div`
   }
 
   .selected {
+    background-color: ${Magnolia} !Important;
     border: 0.0625rem solid ${PurplishBlue} !Important;
   }
   
@@ -204,6 +226,10 @@ const Step2Styled = styled.div`
     }
     
     .yearly {
+      font-weight: 400;
+      font-size: 0.75rem;
+      line-height: 0.875rem;
+      color: ${MarineBlue};
       display: flex !Important;
     }
   }

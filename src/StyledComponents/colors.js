@@ -9,3 +9,4 @@ export const Magnolia = "#f0f6ff";
 export const Alabaster = "#fafbff";
 export const White = "#fff";
 export const bgColor = "#EEF5FF";
+export const bgButtonHover = "#164A8A";

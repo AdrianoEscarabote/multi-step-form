@@ -11,10 +11,6 @@ export default function Step04({ handleColorSteps }) {
   
   const getInfo = useInfo();
 
-  useEffect(() => {
-    console.log(getInfo.addOns);
-  }, []);
-
   const calcTotal = () => {
     let num = 0;
     getInfo.addOns.forEach((element) => {
@@ -40,11 +36,12 @@ export default function Step04({ handleColorSteps }) {
           <div className="services">
           <ul>
             {
-              getInfo.addOns.map((element, index) => {
+              getInfo.addOns.sort((price1, price2) => price1.price - price2.price)
+              .map((element, index) => {
                 return (
                   <li key={index}>
-                    <h3>{element.name}</h3>
-                    <h3>+${element.price}/{element.type}</h3>
+                    <p className="item-name">{element.name}</p>
+                    <p className="item-price">+${element.price}/{element.type}</p>
                   </li>
                 )
               })
@@ -57,15 +54,14 @@ export default function Step04({ handleColorSteps }) {
           <span>Total (per {getInfo.type === "monthly" ? "month" : "year" })</span>
           <p className="result">${calcTotal()}/{getInfo.type === "yearly" ? "yr" : "mo"}</p>
         </div>
-        {/* <h1>{getInfo.name} ::</h1>
-        <h1>{getInfo.email} ::</h1>
-        <h1>{getInfo.phone} ::</h1> */}
 
-
-        <div className="link-router">
-          <Link to="/contact" className="back">Go Back</Link>
-          <Link to="/thanks">Confirm</Link>
-        </div>  
+        <div className="container-link">
+          <div className="link-router">
+            <Link to="/contact" aria-label="go back to the previous step" className="back">Go Back</Link>
+            <Link to="/thanks" className="link" aria-label="confirm the form">Confirm</Link>
+          </div>  
+        </div>
+       
 
       </Step4Styled> 
   );

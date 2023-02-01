@@ -1,10 +1,12 @@
 import styled from "styled-components";
-import { Coolgray, MarineBlue, Alabaster, LightGray, White, PurplishBlue } from "../colors";
+import { Coolgray, MarineBlue, Alabaster, White, PurplishBlue, bgButtonHover} from "../colors";
 
 const Step4Styled = styled.div`
   color: #000;
-  position: relative;
   padding: 2.5rem 5.2rem 2.5rem 3.2rem;
+  position: relative;
+  width: 100%;
+  animation: rightAnimation 0.5s ease-in-out;
 
   h2 {
     font-size: 2rem;
@@ -24,7 +26,7 @@ const Step4Styled = styled.div`
   .infos {
     margin-top: 2.1875rem;
     width: 100%;
-    background-color: ${Coolgray};
+    background-color: ${Alabaster};
     border-radius: 0.625rem;
     padding: 1.25rem;
      
@@ -36,18 +38,24 @@ const Step4Styled = styled.div`
 
       div {
         p {
-          font-weight: 700;
+          font-weight: 500;
+          font-size: 1rem;
+          line-height: 1.125rem;
           color: ${MarineBlue};
-          font-size: 1.125rem;
         }
+
         a {
           color: ${Coolgray};
-          font-size: 0.9375rem;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 20px;
         }
       }
 
       p {
-        font-weight: 600;
+        font-weight: 700;
+        font-size: 1rem;
+        line-height: 1.25rem;
         color: ${MarineBlue};
       }
     }
@@ -64,6 +72,19 @@ const Step4Styled = styled.div`
         li {
           display: flex;
           justify-content: space-between;
+
+          .item-name {
+            font-weight: 400;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+          }
+
+          .item-price {
+            font-weight: 400;
+            font-size: 14px;
+            color: ${MarineBlue};
+            line-height: 20px;
+          }
         }
       }
     }
@@ -74,31 +95,42 @@ const Step4Styled = styled.div`
     display: flex;
     justify-content: space-between;
     padding: 1.25rem;
+    
 
     .result {
       color: ${PurplishBlue};
+      font-weight: 700;
+      font-size: 1.25rem;
+      line-height: 1.25rem;
     }
   }
  
   .link-router {
-    margin-top: 2.5rem;
-    width: 100%;
     display: flex;
     justify-content: space-between;
-    bottom: -2.1875rem;
-    left: -0.125rem;
-    position: relative;
+    position: absolute;
+    bottom: 1rem;
+    max-width: 25.5063rem;
+    width: 100%;
 
     a {
+      position: absolute;
       text-decoration: none;
       width: 7.6075rem;
       border-radius: 0.5rem;
       height: 3rem;
-      background-color: ${MarineBlue};
+      background-color: ${PurplishBlue};
       color: ${White};
       cursor: pointer;
       display: grid;
       place-content: center;
+    }
+
+    .link {
+      right: -40px;
+      &:hover {
+        background-color: #928CFF;
+      }
     }
 
     .back {
@@ -107,6 +139,18 @@ const Step4Styled = styled.div`
       position: relative;
       left: -1.875rem; 
       font-weight: 700; 
+
+      &:hover {
+        color: ${MarineBlue};
+      }
+    }
+  }
+
+  @media (max-width: 57.5625rem) {
+    .link-router {
+      .link {
+        right: 2.5rem;
+      }
     }
   }
 
@@ -128,8 +172,24 @@ const Step4Styled = styled.div`
       position: absolute;
       background-color: ${White};
       padding: 1.25rem;
+      max-width: unset !Important;
+      left: 0px !Important;
+      bottom: 0rem;
+      .link {
+        right: 1.25rem;
+      }
     }
   }
+
+  @media (max-width: 22.5rem) {
+    padding: 1.25rem;
+    .infos {
+      padding: 0.625rem 0.25rem;
+    }
+    .total {
+      padding: 0.625rem 0.25rem;
+    }
+  } 
 `
 
 export default Step4Styled;

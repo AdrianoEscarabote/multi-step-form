@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Coolgray, LightGray, Magnolia, MarineBlue, PurplishBlue, White } from "../colors";
+import { bgButtonHover, Coolgray, LightGray, Magnolia, MarineBlue, PurplishBlue, White } from "../colors";
 
 const Step3Styled = styled.div`
   color: black;
@@ -9,6 +9,7 @@ const Step3Styled = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
+  animation: leftAnimation 0.5s ease-in-out;
 
   h2 {
     color: ${MarineBlue};
@@ -54,6 +55,11 @@ const Step3Styled = styled.div`
             border: 0.0625rem solid ${PurplishBlue};
           }
 
+          input {
+            width: 1.25rem;
+            height: 1.25rem;
+          }
+
           .details {
             display: flex;
             flex-direction: column;
@@ -63,15 +69,15 @@ const Step3Styled = styled.div`
 
             p {
               color: ${MarineBlue};
-              font-size: 1.0121rem;
-              font-weight: 600;
-              line-height: 1rem;
+              font-weight: 500;
+              font-size: 1rem;
+              line-height: 1.125rem;
             }
 
             .info {
               font-weight: 400;
-              font-size: 0.8871rem;
-              line-height: 0.875rem;
+              font-size: 14px;
+              line-height: 20px;
               color: ${Coolgray}; 
             }
           }
@@ -80,6 +86,9 @@ const Step3Styled = styled.div`
             position: absolute;
             right: 1.25rem;
             color: ${PurplishBlue};
+            font-weight: 400;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
           }
         }
       }
@@ -105,12 +114,22 @@ const Step3Styled = styled.div`
           place-content: center;
           font-weight: 700;
         }
+
+        .link {
+          &:hover {
+            background-color: ${bgButtonHover};
+          }
+        }
   
         .back {
           background-color: transparent;
           color: ${Coolgray};
           position: relative;
           left: -1.875rem; 
+
+          &:hover {
+            color: ${MarineBlue} !important;
+          }
         }
       }
     }
@@ -124,6 +143,7 @@ const Step3Styled = styled.div`
 
   .checked {
     border: 0.0625rem solid ${PurplishBlue} !Important;
+    background-color: ${Magnolia} !Important;
   }
 
   @media (max-width: 45rem) {

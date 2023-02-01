@@ -36,10 +36,22 @@ export default function Step03({ handleColorSteps }) {
 
     if (getInfo.addOns.length >= 1) {
       getInfo.addOns.forEach(element => {
-        document.getElementById(`${element.name}`).classList.add("checked");
-        document.getElementById(`${element.name}`).firstChild.checked = "true"
-      })
-    }
+        if (element.name === "Online service") {
+          setLabelOnline("online checked")
+          document.getElementById(`${element.name}`).firstChild.checked = true;
+        };
+
+        if (element.name === "Larger storage") {
+          setLabelStorage("storage checked")
+          document.getElementById(`${element.name}`).firstChild.checked = true;
+        };
+
+        if (element.name === "Customizable profile") {
+          setLabelCustomizable("customizable checked")
+          document.getElementById(`${element.name}`).firstChild.checked = true;
+        };
+      });
+    } ;
 
     if (getInfo.type === "monthly") {
       setOnlinePrice(prevState => {
@@ -85,92 +97,83 @@ export default function Step03({ handleColorSteps }) {
           price: "30",
           type: "yr",
         }
-      })
+      });
     };
-  }, [])
+  }, []);
 
-  const [classToRemove, setClassToRemove] = useState("");
-  const [changeClassLabel, setChangeClassLabel] = useState("");
+  const handleChangeClass = (parent) => {
+    if (parent.includes("online")) {
+      parent === "online checked" ? setLabelOnline("online") : setLabelOnline("online checked");
+    };
 
+    if (parent.includes("storage")) {
+      parent === "storage checked" ? setLabelStorage("storage") : setLabelStorage("storage checked");
+    };
 
-  // usar mais estados!
+    if (parent.includes("customizable")) {
+      parent === "customizable checked" ? setLabelCustomizable("customizable") : setLabelCustomizable("customizable checked");
+    };
+  };
 
-  
+  let plansSelected = [];
+  let formattedPlans = [];
+  const plans = ["Customizable profile", "Online service", "Larger storage"]
 
-
-
-
-  const plansSelected = [];
-  const formattedPlans = [];
-
-  const [condition, setCondition] = useState("");
-  const [getId, setGetId] = useState("");
-
- /*  useEffect(() => {
-    const getIds = document.querySelectorAll("label.checked").forEach(element => element.id)
-    handleClick([...getIds])
-  }, [getId]) */
-
-  const handleClick = (elementId) => {
-
-    const plans = ["Customizable profile", "Online service", "Larger storage"]
-    
+  const handleClick = () => {
     document.querySelectorAll("label.checked").forEach(element => {
       if (plans.includes(element.id)) {
-
-      plansSelected.push(element.id)
-
-      if (plansSelected.includes("Customizable profile")) {
-        formattedPlans.push({name: "Customizable profile", price: customizablePrice.price, type: customizablePrice.type})
-        setInfo(prevState => {
-          return {
-            ...prevState,
-            addOns: formattedPlans
-          }
-        })
+        plansSelected.push(element.id);
       } 
-      
-      if (plansSelected.includes("Online service")) {
-        formattedPlans.push({name: "Online service", price: onlinePrice.price, type: onlinePrice.type})
-        setInfo(prevState => {
-          return {
-            ...prevState,
-            addOns: formattedPlans
-          }
-        })
-      } 
-
-      if (plansSelected.includes("Larger storage")) {
-        formattedPlans.push({name: "Larger storage", price: largerPrice.price, type: largerPrice.type})
-        setInfo(prevState => {
-          return {
-            ...prevState,
-            addOns: formattedPlans  
-          }
-        })
-      }
-     
-      /* alert("entrei no certo que você queria!")
-      formattedPlans = []
+    }) 
+  
+    if (plansSelected.includes("Customizable profile")) {
+      formattedPlans.push({name: "Customizable profile", price: customizablePrice.price, type: customizablePrice.type});
       setInfo(prevState => {
         return {
           ...prevState,
           addOns: formattedPlans
         }
-      }) */
-      } 
-    })
-  }
+      });
+    } ;
+    
+    if (plansSelected.includes("Online service")) {
+      formattedPlans.push({name: "Online service", price: onlinePrice.price, type: onlinePrice.type});
+      setInfo(prevState => {
+        return {
+          ...prevState,
+          addOns: formattedPlans
+        }
+      });
+    } ;
 
-  const [validateButtonNext, setValidateButtonNext] = useState(false);
+    if (plansSelected.includes("Larger storage")) {
+      formattedPlans.push({name: "Larger storage", price: largerPrice.price, type: largerPrice.type});
+      setInfo(prevState => {
+        return {
+          ...prevState,
+          addOns: formattedPlans  
+        }
+      });
+    };
 
-  useEffect(() => {
-    setValidateButtonNext(!document.querySelectorAll("label.checked").length <= 0)
-  }, [condition]) 
+    if (plansSelected.length === 0) {
+      formattedPlans = [];
+      setInfo(prevState => {
+        return {
+          ...prevState,
+          addOns: formattedPlans
+        }
+      });
+    };
+  };
 
   const getIsFormValid = () => {
-    return validateButtonNext
-  }
+    if (labelOnline === "online checked" || labelStorage === "storage checked" || labelCustomizable === "customizable checked") {
+      return true;
+    } else {
+      return false;
+    };
+  };
 
   return (
     <Step3Styled>
@@ -186,7 +189,7 @@ export default function Step03({ handleColorSteps }) {
             <label htmlFor="online_service" className={labelOnline} id="Online service">
 
               <input type="checkbox" name="online_service" id="online_service" onClick={(e) => {
-                removeClass(e.currentTarget.parentElement.className)
+                handleChangeClass(e.currentTarget.parentElement.className)
               }}/>
 
               <div className="details">
@@ -200,7 +203,7 @@ export default function Step03({ handleColorSteps }) {
             <label className={labelStorage}  htmlFor="larger_storage" id="Larger storage">
 
               <input type="checkbox" name="larger_storage" id="larger_storage" onClick={(e) => {
-                removeClass(e.currentTarget.parentElement.className)
+                handleChangeClass(e.currentTarget.parentElement.className)
               }}/>
 
               <div className="details">
@@ -214,7 +217,7 @@ export default function Step03({ handleColorSteps }) {
             <label htmlFor="customizable" className={labelCustomizable} id="Customizable profile">
 
               <input type="checkbox" name="customizable" id="customizable" onClick={(e) => {
-                removeClass(e.currentTarget.parentElement.className)
+                handleChangeClass(e.currentTarget.parentElement.className)
               }}/>
 
               <div className="details">
@@ -227,8 +230,8 @@ export default function Step03({ handleColorSteps }) {
           </section>
 
           <div className="link-router">
-            <Link to="/plan" className="back" onClick={() => handleClick()}>Go Back</Link>
-            <Link to="/finishing" onClick={() => handleClick()} className={getIsFormValid() ? "link" : "link disabled"}> Next Step </Link>
+            <Link to="/plan" className="back" aria-label="go back to the previous step" onClick={() => handleClick()}>Go Back</Link>
+            <Link to="/finishing" aria-label={getIsFormValid() ? "go to the other section of the form!" : "" } aria-disabled={getIsFormValid() ? "false" : "true"} onClick={() => handleClick()} className={getIsFormValid() ? "link" : "link disabled"}> Next Step </Link>
           </div>
 
         </fieldset>
