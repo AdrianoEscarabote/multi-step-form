@@ -2,7 +2,7 @@
 
 ## VIDEO
 
-
+https://user-images.githubusercontent.com/101136987/216338677-18ddef07-5943-47a7-a917-b47099f4b08e.mp4
 
 # Frontend Mentor - Multi-step form solution
 
