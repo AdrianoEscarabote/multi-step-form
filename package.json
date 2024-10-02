@@ -16,6 +16,10 @@
     "react-scripts": "^5.0.1",
     "styled-components": "^5.3.6"
   },
+  "overrides": {
+    "nth-check": "^2.0.1",
+    "postcss": "^8.4.31"
+  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -29,4 +33,3 @@
     ]
   }
 }
-
